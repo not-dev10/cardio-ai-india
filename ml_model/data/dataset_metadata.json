@@ -1,0 +1,12 @@
+{
+  "total": 5569,
+  "disease": 1995,
+  "healthy": 3574,
+  "sources": {
+    "uci_cleveland": 299,
+    "statlog": 270,
+    "z_alizadeh": 0,
+    "indian_synthetic": 5000
+  },
+  "note": "Synthetic Indian data based on published statistics from Mohan et al. (2019) and ICMR guidelines"
+}
