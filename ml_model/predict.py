@@ -9,37 +9,29 @@ from config import MODELS_DIR, RISK_THRESHOLDS
 class HeartDiseasePredictor:
     """Handle predictions for heart disease risk"""
     
-    def __init__(self, model_type="xgboost"):
-        """
-        Initialize predictor
-        
-        Args:
-            model_type: Type of model to load
-        """
-        self.model_type = model_type
+    def __init__(self):
+        """Initialize predictor"""
+        self.model_data = None
         self.model = None
         self.scaler = None
+        self.feature_names = None
+        self.optimal_threshold = 0.5
         self.load_model()
-        self.load_scaler()
     
     def load_model(self):
-        """Load trained model"""
-        model_path = MODELS_DIR / f"{self.model_type}_model.joblib"
+        """Load trained model bundle"""
+        model_path = MODELS_DIR / "heart_disease_model.joblib"
         try:
-            self.model = joblib.load(model_path)
+            self.model_data = joblib.load(model_path)
+            self.model = self.model_data["model"]
+            self.scaler = self.model_data["scaler"]
+            self.feature_names = self.model_data["feature_names"]
+            self.optimal_threshold = self.model_data["optimal_threshold"]
             print(f"Model loaded: {model_path}")
+            print(f"Optimal threshold: {self.optimal_threshold:.3f}")
         except FileNotFoundError:
             print(f"Error: Model not found at {model_path}")
-            print("Please train the model first using train_model.py")
-    
-    def load_scaler(self):
-        """Load feature scaler"""
-        scaler_path = MODELS_DIR / "feature_scaler.joblib"
-        try:
-            self.scaler = joblib.load(scaler_path)
-            print(f"Scaler loaded: {scaler_path}")
-        except FileNotFoundError:
-            print(f"Error: Scaler not found at {scaler_path}")
+            print("Please train the model first using train.py")
     
     def preprocess_input(self, input_data):
         """
@@ -70,7 +62,7 @@ class HeartDiseasePredictor:
         Make prediction
         
         Args:
-            input_data: Input features
+            input_data: Input features (dict or array)
             
         Returns:
             dict: Prediction results
@@ -81,12 +73,14 @@ class HeartDiseasePredictor:
         # Preprocess
         input_processed = self.preprocess_input(input_data)
         
-        # Predict
-        prediction = self.model.predict(input_processed)[0]
+        # Get probability
         probability = self.model.predict_proba(input_processed)[0]
+        risk_prob = probability[1]  # Probability of heart disease
+        
+        # Use optimal threshold for prediction
+        prediction = 1 if risk_prob >= self.optimal_threshold else 0
         
         # Determine risk level
-        risk_prob = probability[1]  # Probability of heart disease
         risk_level = self._get_risk_level(risk_prob)
         
         # Get recommendations
@@ -179,9 +173,9 @@ class HeartDiseasePredictor:
 
 def example_prediction():
     """Example usage of predictor"""
-    predictor = HeartDiseasePredictor(model_type="xgboost")
+    predictor = HeartDiseasePredictor()
     
-    # Example input (adjust based on your features)
+    # Example input (13 standard features)
     sample_input = {
         "age": 55,
         "sex": 1,  # male
@@ -199,6 +193,10 @@ def example_prediction():
     }
     
     result = predictor.predict(sample_input)
+    
+    if "error" in result:
+        print(f"Error: {result['error']}")
+        return
     
     print("\n" + "="*50)
     print("PREDICTION RESULT")

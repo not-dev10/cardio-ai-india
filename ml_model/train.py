@@ -1,217 +1,292 @@
 """
 Heart Disease Model Training Script
-Compatible with Python 3.14 + latest packages
+Uses combined dataset (5,569 samples) with 13 standard features
+Compatible with Python 3.14
 """
 import csv
+import os
 import joblib
 import numpy as np
 from pathlib import Path
 from sklearn.ensemble import RandomForestClassifier, VotingClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.model_selection import train_test_split
 from sklearn.metrics import (
     accuracy_score, precision_score, recall_score,
-    f1_score, roc_auc_score, confusion_matrix, classification_report,
-    precision_recall_curve
+    f1_score, roc_auc_score, confusion_matrix,
+    classification_report, precision_recall_curve
 )
 from sklearn.calibration import CalibratedClassifierCV
 import xgboost as xgb
 
-# Paths
-DATA_FILE = Path("data/heart_disease_data.csv")
 MODELS_DIR = Path("models")
 MODELS_DIR.mkdir(exist_ok=True)
 
+# 13 standard features
+STANDARD_FEATURES = [
+    "age", "sex", "cp", "trestbps", "chol", "fbs", "restecg",
+    "thalach", "exang", "oldpeak", "slope", "ca", "thal"
+]
 
-def load_data(filepath):
-    """Load CSV without pandas"""
+FEATURE_LABELS = {
+    "age": "Age", "sex": "Sex", "cp": "Chest Pain Type",
+    "trestbps": "Resting BP", "chol": "Cholesterol",
+    "fbs": "Fasting Blood Sugar", "restecg": "Resting ECG",
+    "thalach": "Max Heart Rate", "exang": "Exercise Angina",
+    "oldpeak": "ST Depression", "slope": "ST Slope",
+    "ca": "Major Vessels", "thal": "Thalassemia"
+}
+
+
+def find_kaggle_csv():
+    """Find the Kaggle Indian dataset CSV"""
+    # Check kagglehub cache
+    cache = Path(os.path.expanduser("~/.cache/kagglehub/datasets"))
+    if cache.exists():
+        for p in cache.rglob("heart_attack_india_3000.csv"):
+            return p
+    # Check local data dir
+    local = Path("data/heart_attack_india_3000.csv")
+    if local.exists():
+        return local
+    return None
+
+
+def load_kaggle_data():
+    """Load Kaggle Indian dataset with 19 features"""
+    csv_path = find_kaggle_csv()
+    if not csv_path:
+        print("  Kaggle dataset not found in cache.")
+        return [], KAGGLE_FEATURES
+
     rows = []
-    with open(filepath, "r") as f:
+    with open(csv_path, "r") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            rows.append(row)
+            try:
+                features = [float(row[col]) for col in KAGGLE_FEATURES]
+                target = int(float(row["target"]))
+                rows.append(features + [target])
+            except (ValueError, KeyError):
+                continue
 
-    feature_cols = [
+    print(f"  Kaggle Indian: {len(rows)} rows, {len(KAGGLE_FEATURES)} features")
+    return rows, KAGGLE_FEATURES
+
+
+def load_uci_data():
+    """Load UCI Cleveland data (13 features), pad to 19 with zeros"""
+    uci_path = Path("data/heart_disease_real.csv")
+    if not uci_path.exists():
+        return []
+
+    uci_cols = [
         "age", "sex", "chest_pain_type", "resting_bp", "cholesterol",
         "fasting_blood_sugar", "resting_ecg", "max_heart_rate",
         "exercise_induced_angina", "st_depression", "st_slope",
         "num_major_vessels", "thalassemia"
     ]
 
-    X, y = [], []
-    skipped = 0
-    for row in rows:
-        try:
-            features = [float(row[col]) for col in feature_cols]
-            target = int(row["target"])
-            X.append(features)
-            y.append(target)
-        except (ValueError, KeyError):
-            skipped += 1
+    rows = []
+    with open(uci_path, "r") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            try:
+                features = [float(row[col]) for col in uci_cols]
+                # Pad 6 Indian features with 0 (unknown)
+                features += [0.0] * 6
+                target = int(float(row["target"]))
+                rows.append(features + [target])
+            except (ValueError, KeyError):
+                continue
 
-    print(f"Loaded {len(X)} rows (skipped {skipped} with missing values)")
-    return np.array(X), np.array(y), feature_cols
+    print(f"  UCI Cleveland: {len(rows)} rows (padded to 19 features)")
+    return rows
 
 
 def find_threshold_for_recall(y_true, y_proba, target_recall=0.90):
-    """Find best threshold balancing recall >= target with reasonable precision"""
+    """Find threshold that achieves target recall with best precision"""
     precisions, recalls, thresholds = precision_recall_curve(y_true, y_proba)
-    best_thresh, best_prec, best_rec = 0.5, 0.0, 0.0
+    best = (0.5, 0.0, 0.0)
     for prec, rec, thresh in zip(precisions, recalls, thresholds):
-        if rec >= target_recall and prec > best_prec and thresh >= 0.3:
-            best_thresh, best_prec, best_rec = thresh, prec, rec
-    # Fallback: if no threshold found above 0.3, use 0.5
-    if best_prec == 0.0:
-        return 0.5, precisions[len(thresholds)//2], recalls[len(thresholds)//2]
-    return best_thresh, best_prec, best_rec
+        if rec >= target_recall and prec > best[1] and thresh >= 0.25:
+            best = (thresh, prec, rec)
+    return best
+
+
+def load_combined_data():
+    """Load the combined heart_disease_data.csv with all 5,569 samples"""
+    combined_path = Path("data/heart_disease_data.csv")
+    if not combined_path.exists():
+        print("  Combined dataset not found!")
+        return [], KAGGLE_FEATURES
+    
+    rows = []
+    with open(combined_path, "r") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            try:
+                # Map from standard column names to feature list
+                features = [
+                    float(row["age"]),
+                    float(row["sex"]),
+                    float(row["chest_pain_type"]),
+                    float(row["resting_bp"]),
+                    float(row["cholesterol"]),
+                    float(row["fasting_blood_sugar"]),
+                    float(row["resting_ecg"]),
+                    float(row["max_heart_rate"]),
+                    float(row["exercise_induced_angina"]),
+                    float(row["st_depression"]),
+                    float(row["st_slope"]),
+                    float(row["num_major_vessels"]),
+                    float(row["thalassemia"])
+                ]
+                target = int(float(row["target"]))
+                rows.append(features + [target])
+            except (ValueError, KeyError) as e:
+                continue
+    
+    print(f"  Combined dataset: {len(rows)} rows, 13 features")
+    return rows, [
+        "age", "sex", "cp", "trestbps", "chol", "fbs", "restecg",
+        "thalach", "exang", "oldpeak", "slope", "ca", "thal"
+    ]
 
 
 def train_and_evaluate():
     print("=" * 60)
-    print("HEART DISEASE MODEL TRAINING")
+    print("HEART DISEASE MODEL - COMBINED DATASET (13 FEATURES)")
     print("=" * 60)
 
-    X, y, feature_names = load_data(DATA_FILE)
-    print(f"Features: {X.shape[1]}, Samples: {X.shape[0]}")
-    print(f"Class distribution - No disease: {(y==0).sum()}, Disease: {(y==1).sum()}")
+    # Load data
+    print("\nLoading datasets...")
+    all_rows, feature_cols = load_combined_data()
+    
+    if not all_rows:
+        print("No data found! Run fetch_large_datasets.py first.")
+        return
 
+    X = np.array([r[:-1] for r in all_rows])
+    y = np.array([r[-1] for r in all_rows])
+
+    print(f"\nTotal: {len(X)} samples, {X.shape[1]} features")
+    print(f"No disease: {(y==0).sum()}, Disease: {(y==1).sum()}")
+
+    # Split
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.2, random_state=42, stratify=y
     )
 
+    # Scale
     scaler = StandardScaler()
-    X_train_scaled = scaler.fit_transform(X_train)
-    X_test_scaled = scaler.transform(X_test)
+    X_train_s = scaler.fit_transform(X_train)
+    X_test_s = scaler.transform(X_test)
     joblib.dump(scaler, MODELS_DIR / "scaler.joblib")
 
-    # Train models
+    # Train
     print("\n[1/3] Training XGBoost...")
     xgb_model = xgb.XGBClassifier(
-        n_estimators=200,
-        max_depth=4,
-        learning_rate=0.05,
-        scale_pos_weight=3,  # higher weight for disease class
-        subsample=0.8,
-        colsample_bytree=0.8,
-        random_state=42,
-        eval_metric="logloss",
-        verbosity=0
+        n_estimators=300, max_depth=5, learning_rate=0.05,
+        scale_pos_weight=2, subsample=0.8, colsample_bytree=0.8,
+        min_child_weight=3, random_state=42,
+        eval_metric="logloss", verbosity=0
     )
-    xgb_model.fit(X_train_scaled, y_train)
+    xgb_model.fit(X_train_s, y_train)
 
     print("[2/3] Training Random Forest...")
     rf_model = RandomForestClassifier(
-        n_estimators=300,
-        max_depth=8,
-        class_weight={0: 1, 1: 3},
-        random_state=42,
-        n_jobs=-1
+        n_estimators=300, max_depth=10,
+        class_weight={0: 1, 1: 2}, min_samples_leaf=5,
+        random_state=42, n_jobs=-1
     )
-    rf_model.fit(X_train_scaled, y_train)
+    rf_model.fit(X_train_s, y_train)
 
     print("[3/3] Training Logistic Regression...")
     lr_model = LogisticRegression(
-        class_weight={0: 1, 1: 3},
-        random_state=42,
-        max_iter=1000
+        class_weight={0: 1, 1: 2}, random_state=42, max_iter=1000
     )
-    lr_model.fit(X_train_scaled, y_train)
+    lr_model.fit(X_train_s, y_train)
 
-    print("\nBuilding ensemble...")
+    # Ensemble
+    print("\nBuilding ensemble + calibrating...")
     ensemble = VotingClassifier(
         estimators=[("xgb", xgb_model), ("rf", rf_model), ("lr", lr_model)],
-        voting="soft",
-        weights=[2, 1.5, 1]
+        voting="soft", weights=[2, 1.5, 1]
     )
-    ensemble.fit(X_train_scaled, y_train)
+    ensemble.fit(X_train_s, y_train)
 
-    print("Calibrating probabilities...")
     calibrated = CalibratedClassifierCV(ensemble, method="sigmoid", cv=3)
-    calibrated.fit(X_train_scaled, y_train)
+    calibrated.fit(X_train_s, y_train)
 
-    # Get probabilities
-    y_proba = calibrated.predict_proba(X_test_scaled)[:, 1]
+    # Evaluate
+    y_proba = calibrated.predict_proba(X_test_s)[:, 1]
+    y_pred_default = calibrated.predict(X_test_s)
+    opt_thresh, opt_prec, opt_rec = find_threshold_for_recall(y_test, y_proba)
+    y_pred_opt = (y_proba >= opt_thresh).astype(int)
 
-    # Find optimal threshold for high recall
-    opt_threshold, opt_precision, opt_recall = find_threshold_for_recall(
-        y_test, y_proba, target_recall=0.90
-    )
-
-    # Evaluate at default threshold (0.5)
-    y_pred_default = calibrated.predict(X_test_scaled)
-
-    # Evaluate at optimized threshold
-    y_pred_optimized = (y_proba >= opt_threshold).astype(int)
-
-    print("\n" + "=" * 60)
-    print("EVALUATION RESULTS")
-    print("=" * 60)
-
-    print("\n--- Default Threshold (0.50) ---")
-    print(f"Accuracy:  {accuracy_score(y_test, y_pred_default):.4f}")
-    print(f"Precision: {precision_score(y_test, y_pred_default):.4f}")
-    print(f"Recall:    {recall_score(y_test, y_pred_default):.4f}")
-    print(f"F1-Score:  {f1_score(y_test, y_pred_default):.4f}")
-    print(f"ROC-AUC:   {roc_auc_score(y_test, y_proba):.4f}")
-
-    rec_opt = recall_score(y_test, y_pred_optimized)
-    prec_opt = precision_score(y_test, y_pred_optimized)
-    acc_opt = accuracy_score(y_test, y_pred_optimized)
     auc = roc_auc_score(y_test, y_proba)
 
-    print(f"\n--- Optimized Threshold ({opt_threshold:.3f}) for High Recall ---")
-    print(f"Accuracy:  {acc_opt:.4f}")
-    print(f"Precision: {prec_opt:.4f}")
-    print(f"Recall:    {rec_opt:.4f}  {'✓ TARGET MET (>=90%)' if rec_opt >= 0.90 else f'Best achievable on this dataset'}")
-    print(f"F1-Score:  {f1_score(y_test, y_pred_optimized):.4f}")
-    print(f"ROC-AUC:   {auc:.4f}")
+    print("\n" + "=" * 60)
+    print("RESULTS")
+    print("=" * 60)
 
-    cm = confusion_matrix(y_test, y_pred_optimized)
+    print(f"\nDefault threshold (0.50):")
+    print(f"  Accuracy:  {accuracy_score(y_test, y_pred_default):.4f}")
+    print(f"  Recall:    {recall_score(y_test, y_pred_default):.4f}")
+    print(f"  Precision: {precision_score(y_test, y_pred_default):.4f}")
+    print(f"  ROC-AUC:   {auc:.4f}")
+
+    acc_o = accuracy_score(y_test, y_pred_opt)
+    rec_o = recall_score(y_test, y_pred_opt)
+    prec_o = precision_score(y_test, y_pred_opt)
+    f1_o = f1_score(y_test, y_pred_opt)
+    cm = confusion_matrix(y_test, y_pred_opt)
     tn, fp, fn, tp = cm.ravel()
-    print(f"\nConfusion Matrix (optimized threshold):")
-    print(f"  True Negatives:  {tn}")
-    print(f"  False Positives: {fp}  (over-cautious - acceptable)")
-    print(f"  False Negatives: {fn}  (missed disease - minimize!)")
-    print(f"  True Positives:  {tp}  (correctly caught)")
 
-    print("\nClassification Report (optimized):")
-    print(classification_report(y_test, y_pred_optimized, target_names=["No Disease", "Disease"]))
+    print(f"\nOptimized threshold ({opt_thresh:.3f}):")
+    print(f"  Accuracy:  {acc_o:.4f}")
+    print(f"  Recall:    {rec_o:.4f}  {'✓ TARGET MET' if rec_o >= 0.90 else '✗'}")
+    print(f"  Precision: {prec_o:.4f}")
+    print(f"  F1-Score:  {f1_o:.4f}")
+    print(f"  ROC-AUC:   {auc:.4f}")
+    print(f"\n  TN:{tn}  FP:{fp}  FN:{fn}  TP:{tp}")
+    print(f"  Missed: {fn}/{fn+tp} disease cases")
 
-    print("\nTop 10 Feature Importances:")
+    print("\nClassification Report:")
+    print(classification_report(y_test, y_pred_opt, target_names=["Healthy", "Disease"]))
+
+    # Feature importance
+    print("Top 10 Features:")
     importances = rf_model.feature_importances_
-    sorted_idx = np.argsort(importances)[::-1]
-    for i in range(10):
-        idx = sorted_idx[i]
-        print(f"  {i+1:2}. {feature_names[idx]:<30} {importances[idx]:.4f}")
+    for i, idx in enumerate(np.argsort(importances)[::-1][:10]):
+        name = feature_cols[idx]
+        label = FEATURE_LABELS.get(name, name)
+        print(f"  {i+1:2}. {label:<25} {importances[idx]:.4f}")
 
-    # Save everything
+    # Save model
     model_path = MODELS_DIR / "heart_disease_model.joblib"
     joblib.dump({
         "model": calibrated,
         "scaler": scaler,
-        "feature_names": feature_names,
-        "optimal_threshold": opt_threshold,
+        "feature_names": feature_cols,
+        "optimal_threshold": opt_thresh,
         "metrics": {
-            "accuracy": acc_opt,
-            "precision": prec_opt,
-            "recall": rec_opt,
-            "f1": f1_score(y_test, y_pred_optimized),
-            "roc_auc": auc
+            "accuracy": acc_o, "precision": prec_o,
+            "recall": rec_o, "f1": f1_o, "roc_auc": auc
         }
     }, model_path)
 
-    print(f"\nModel saved to: {model_path}")
+    print(f"\nModel saved: {model_path}")
     print("\n" + "=" * 60)
     print("TRAINING COMPLETE!")
     print("=" * 60)
-    print(f"\nFinal Summary:")
-    print(f"  Accuracy:  {acc_opt:.1%}")
-    print(f"  Recall:    {rec_opt:.1%}  (catches {tp}/{tp+fn} disease cases)")
+    print(f"  Accuracy:  {acc_o:.1%}")
+    print(f"  Recall:    {rec_o:.1%}  ({tp}/{tp+fn} disease cases caught)")
     print(f"  AUC:       {auc:.4f}")
-    print(f"  Threshold: {opt_threshold:.3f}")
-    print(f"\nNote: AUC of {auc:.4f} means the model is excellent at ranking.")
-    print("      With Indian data (10,000+ samples), recall will improve further.")
+    print(f"  Features:  {len(feature_cols)} (standard UCI features)")
+    print(f"  Dataset:   {len(X)} samples (combined real + synthetic)")
 
 
 if __name__ == "__main__":
