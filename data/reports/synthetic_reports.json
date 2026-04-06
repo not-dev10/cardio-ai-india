@@ -1,0 +1,1102 @@
+[
+  {
+    "id": 0,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 31 years\nDate: 2024-01-01\n\nRESULTS:\nHemoglobin: 17.5 g/dL\nCholesterol: 291 mg/dL\nBlood Pressure: 118/114 mmHg\nGlucose (Fasting): 176 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- Elevated blood glucose\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 31,
+      "cholesterol": 291,
+      "glucose": 176,
+      "blood_pressure": "118/114",
+      "hemoglobin": 17.462159287483722
+    }
+  },
+  {
+    "id": 1,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 58 years\nDate: 2024-01-02\n\nRESULTS:\nHemoglobin: 10.6 g/dL\nCholesterol: 288 mg/dL\nBlood Pressure: 117/115 mmHg\nGlucose (Fasting): 116 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 58,
+      "cholesterol": 288,
+      "glucose": 116,
+      "blood_pressure": "117/115",
+      "hemoglobin": 10.604922877582943
+    }
+  },
+  {
+    "id": 2,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 40 years\nDate: 2024-01-03\n\nRESULTS:\nHemoglobin: 15.3 g/dL\nCholesterol: 224 mg/dL\nBlood Pressure: 102/79 mmHg\nGlucose (Fasting): 168 mg/dL\n\nINTERPRETATION:\n- Elevated blood glucose\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 40,
+      "cholesterol": 224,
+      "glucose": 168,
+      "blood_pressure": "102/79",
+      "hemoglobin": 15.263504034623438
+    }
+  },
+  {
+    "id": 3,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 67 years\nDate: 2024-01-04\n\nRESULTS:\nHemoglobin: 17.2 g/dL\nCholesterol: 252 mg/dL\nBlood Pressure: 168/102 mmHg\nGlucose (Fasting): 192 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 67,
+      "cholesterol": 252,
+      "glucose": 192,
+      "blood_pressure": "168/102",
+      "hemoglobin": 17.233896102214317
+    }
+  },
+  {
+    "id": 4,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 70 years\nDate: 2024-01-05\n\nRESULTS:\nHemoglobin: 15.4 g/dL\nCholesterol: 288 mg/dL\nBlood Pressure: 105/69 mmHg\nGlucose (Fasting): 125 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 70,
+      "cholesterol": 288,
+      "glucose": 125,
+      "blood_pressure": "105/69",
+      "hemoglobin": 15.387391723873069
+    }
+  },
+  {
+    "id": 5,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 37 years\nDate: 2024-01-06\n\nRESULTS:\nHemoglobin: 15.1 g/dL\nCholesterol: 272 mg/dL\nBlood Pressure: 144/79 mmHg\nGlucose (Fasting): 116 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 37,
+      "cholesterol": 272,
+      "glucose": 116,
+      "blood_pressure": "144/79",
+      "hemoglobin": 15.113872990304262
+    }
+  },
+  {
+    "id": 6,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 37 years\nDate: 2024-01-07\n\nRESULTS:\nHemoglobin: 14.9 g/dL\nCholesterol: 271 mg/dL\nBlood Pressure: 145/116 mmHg\nGlucose (Fasting): 98 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 37,
+      "cholesterol": 271,
+      "glucose": 98,
+      "blood_pressure": "145/116",
+      "hemoglobin": 14.935706497932184
+    }
+  },
+  {
+    "id": 7,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 59 years\nDate: 2024-01-08\n\nRESULTS:\nHemoglobin: 11.5 g/dL\nCholesterol: 279 mg/dL\nBlood Pressure: 125/97 mmHg\nGlucose (Fasting): 138 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- Elevated blood glucose\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 59,
+      "cholesterol": 279,
+      "glucose": 138,
+      "blood_pressure": "125/97",
+      "hemoglobin": 11.52494872810345
+    }
+  },
+  {
+    "id": 8,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 78 years\nDate: 2024-01-09\n\nRESULTS:\nHemoglobin: 12.2 g/dL\nCholesterol: 241 mg/dL\nBlood Pressure: 130/69 mmHg\nGlucose (Fasting): 115 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 78,
+      "cholesterol": 241,
+      "glucose": 115,
+      "blood_pressure": "130/69",
+      "hemoglobin": 12.168344895387037
+    }
+  },
+  {
+    "id": 9,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 76 years\nDate: 2024-01-10\n\nRESULTS:\nHemoglobin: 13.4 g/dL\nCholesterol: 297 mg/dL\nBlood Pressure: 179/101 mmHg\nGlucose (Fasting): 190 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 76,
+      "cholesterol": 297,
+      "glucose": 190,
+      "blood_pressure": "179/101",
+      "hemoglobin": 13.359947976911577
+    }
+  },
+  {
+    "id": 10,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 66 years\nDate: 2024-01-11\n\nRESULTS:\nHemoglobin: 18.0 g/dL\nCholesterol: 248 mg/dL\nBlood Pressure: 169/119 mmHg\nGlucose (Fasting): 127 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 66,
+      "cholesterol": 248,
+      "glucose": 127,
+      "blood_pressure": "169/119",
+      "hemoglobin": 17.97375975160167
+    }
+  },
+  {
+    "id": 11,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 70 years\nDate: 2024-01-12\n\nRESULTS:\nHemoglobin: 13.7 g/dL\nCholesterol: 199 mg/dL\nBlood Pressure: 159/112 mmHg\nGlucose (Fasting): 111 mg/dL\n\nINTERPRETATION:\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 70,
+      "cholesterol": 199,
+      "glucose": 111,
+      "blood_pressure": "159/112",
+      "hemoglobin": 13.6640414445401
+    }
+  },
+  {
+    "id": 12,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 70 years\nDate: 2024-01-13\n\nRESULTS:\nHemoglobin: 10.1 g/dL\nCholesterol: 263 mg/dL\nBlood Pressure: 103/106 mmHg\nGlucose (Fasting): 78 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 70,
+      "cholesterol": 263,
+      "glucose": 78,
+      "blood_pressure": "103/106",
+      "hemoglobin": 10.095271281268765
+    }
+  },
+  {
+    "id": 13,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 79 years\nDate: 2024-01-14\n\nRESULTS:\nHemoglobin: 15.8 g/dL\nCholesterol: 273 mg/dL\nBlood Pressure: 103/92 mmHg\nGlucose (Fasting): 173 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- Elevated blood glucose\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 79,
+      "cholesterol": 273,
+      "glucose": 173,
+      "blood_pressure": "103/92",
+      "hemoglobin": 15.84243612171312
+    }
+  },
+  {
+    "id": 14,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 68 years\nDate: 2024-01-15\n\nRESULTS:\nHemoglobin: 16.0 g/dL\nCholesterol: 169 mg/dL\nBlood Pressure: 150/112 mmHg\nGlucose (Fasting): 123 mg/dL\n\nINTERPRETATION:\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 68,
+      "cholesterol": 169,
+      "glucose": 123,
+      "blood_pressure": "150/112",
+      "hemoglobin": 16.03108596597795
+    }
+  },
+  {
+    "id": 15,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 69 years\nDate: 2024-01-16\n\nRESULTS:\nHemoglobin: 12.6 g/dL\nCholesterol: 180 mg/dL\nBlood Pressure: 120/92 mmHg\nGlucose (Fasting): 147 mg/dL\n\nINTERPRETATION:\n- Elevated blood glucose\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 69,
+      "cholesterol": 180,
+      "glucose": 147,
+      "blood_pressure": "120/92",
+      "hemoglobin": 12.604936284710721
+    }
+  },
+  {
+    "id": 16,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 78 years\nDate: 2024-01-17\n\nRESULTS:\nHemoglobin: 10.1 g/dL\nCholesterol: 295 mg/dL\nBlood Pressure: 152/64 mmHg\nGlucose (Fasting): 76 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 78,
+      "cholesterol": 295,
+      "glucose": 76,
+      "blood_pressure": "152/64",
+      "hemoglobin": 10.10194804218938
+    }
+  },
+  {
+    "id": 17,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 47 years\nDate: 2024-01-18\n\nRESULTS:\nHemoglobin: 16.9 g/dL\nCholesterol: 205 mg/dL\nBlood Pressure: 115/92 mmHg\nGlucose (Fasting): 178 mg/dL\n\nINTERPRETATION:\n- Elevated blood glucose\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 47,
+      "cholesterol": 205,
+      "glucose": 178,
+      "blood_pressure": "115/92",
+      "hemoglobin": 16.88207536076903
+    }
+  },
+  {
+    "id": 18,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 33 years\nDate: 2024-01-19\n\nRESULTS:\nHemoglobin: 14.5 g/dL\nCholesterol: 270 mg/dL\nBlood Pressure: 148/90 mmHg\nGlucose (Fasting): 179 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 33,
+      "cholesterol": 270,
+      "glucose": 179,
+      "blood_pressure": "148/90",
+      "hemoglobin": 14.461022759797283
+    }
+  },
+  {
+    "id": 19,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 72 years\nDate: 2024-01-20\n\nRESULTS:\nHemoglobin: 16.8 g/dL\nCholesterol: 274 mg/dL\nBlood Pressure: 101/65 mmHg\nGlucose (Fasting): 174 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- Elevated blood glucose\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 72,
+      "cholesterol": 274,
+      "glucose": 174,
+      "blood_pressure": "101/65",
+      "hemoglobin": 16.820418222670618
+    }
+  },
+  {
+    "id": 20,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 68 years\nDate: 2024-01-21\n\nRESULTS:\nHemoglobin: 17.0 g/dL\nCholesterol: 241 mg/dL\nBlood Pressure: 128/102 mmHg\nGlucose (Fasting): 120 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 68,
+      "cholesterol": 241,
+      "glucose": 120,
+      "blood_pressure": "128/102",
+      "hemoglobin": 17.028074668959263
+    }
+  },
+  {
+    "id": 21,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 75 years\nDate: 2024-01-22\n\nRESULTS:\nHemoglobin: 14.8 g/dL\nCholesterol: 284 mg/dL\nBlood Pressure: 118/82 mmHg\nGlucose (Fasting): 176 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- Elevated blood glucose\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 75,
+      "cholesterol": 284,
+      "glucose": 176,
+      "blood_pressure": "118/82",
+      "hemoglobin": 14.79539708768884
+    }
+  },
+  {
+    "id": 22,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 41 years\nDate: 2024-01-23\n\nRESULTS:\nHemoglobin: 16.1 g/dL\nCholesterol: 221 mg/dL\nBlood Pressure: 171/75 mmHg\nGlucose (Fasting): 96 mg/dL\n\nINTERPRETATION:\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 41,
+      "cholesterol": 221,
+      "glucose": 96,
+      "blood_pressure": "171/75",
+      "hemoglobin": 16.126825835450198
+    }
+  },
+  {
+    "id": 23,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 58 years\nDate: 2024-01-24\n\nRESULTS:\nHemoglobin: 13.2 g/dL\nCholesterol: 222 mg/dL\nBlood Pressure: 157/103 mmHg\nGlucose (Fasting): 182 mg/dL\n\nINTERPRETATION:\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 58,
+      "cholesterol": 222,
+      "glucose": 182,
+      "blood_pressure": "157/103",
+      "hemoglobin": 13.203054240532385
+    }
+  },
+  {
+    "id": 24,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 46 years\nDate: 2024-01-25\n\nRESULTS:\nHemoglobin: 16.0 g/dL\nCholesterol: 275 mg/dL\nBlood Pressure: 146/102 mmHg\nGlucose (Fasting): 181 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 46,
+      "cholesterol": 275,
+      "glucose": 181,
+      "blood_pressure": "146/102",
+      "hemoglobin": 16.02738267616138
+    }
+  },
+  {
+    "id": 25,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 44 years\nDate: 2024-01-26\n\nRESULTS:\nHemoglobin: 13.6 g/dL\nCholesterol: 270 mg/dL\nBlood Pressure: 143/112 mmHg\nGlucose (Fasting): 115 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 44,
+      "cholesterol": 270,
+      "glucose": 115,
+      "blood_pressure": "143/112",
+      "hemoglobin": 13.574634206025024
+    }
+  },
+  {
+    "id": 26,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 54 years\nDate: 2024-01-27\n\nRESULTS:\nHemoglobin: 17.5 g/dL\nCholesterol: 272 mg/dL\nBlood Pressure: 146/68 mmHg\nGlucose (Fasting): 162 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 54,
+      "cholesterol": 272,
+      "glucose": 162,
+      "blood_pressure": "146/68",
+      "hemoglobin": 17.507456055020704
+    }
+  },
+  {
+    "id": 27,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 49 years\nDate: 2024-01-28\n\nRESULTS:\nHemoglobin: 10.7 g/dL\nCholesterol: 205 mg/dL\nBlood Pressure: 170/80 mmHg\nGlucose (Fasting): 137 mg/dL\n\nINTERPRETATION:\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 49,
+      "cholesterol": 205,
+      "glucose": 137,
+      "blood_pressure": "170/80",
+      "hemoglobin": 10.730415145943045
+    }
+  },
+  {
+    "id": 28,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 57 years\nDate: 2024-01-01\n\nRESULTS:\nHemoglobin: 13.8 g/dL\nCholesterol: 193 mg/dL\nBlood Pressure: 113/65 mmHg\nGlucose (Fasting): 118 mg/dL\n\nINTERPRETATION:\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 57,
+      "cholesterol": 193,
+      "glucose": 118,
+      "blood_pressure": "113/65",
+      "hemoglobin": 13.826427063009254
+    }
+  },
+  {
+    "id": 29,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 40 years\nDate: 2024-01-02\n\nRESULTS:\nHemoglobin: 11.1 g/dL\nCholesterol: 278 mg/dL\nBlood Pressure: 121/100 mmHg\nGlucose (Fasting): 112 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 40,
+      "cholesterol": 278,
+      "glucose": 112,
+      "blood_pressure": "121/100",
+      "hemoglobin": 11.14316315737816
+    }
+  },
+  {
+    "id": 30,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 36 years\nDate: 2024-01-03\n\nRESULTS:\nHemoglobin: 18.0 g/dL\nCholesterol: 248 mg/dL\nBlood Pressure: 146/83 mmHg\nGlucose (Fasting): 123 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 36,
+      "cholesterol": 248,
+      "glucose": 123,
+      "blood_pressure": "146/83",
+      "hemoglobin": 17.98473449248909
+    }
+  },
+  {
+    "id": 31,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 58 years\nDate: 2024-01-04\n\nRESULTS:\nHemoglobin: 17.1 g/dL\nCholesterol: 186 mg/dL\nBlood Pressure: 129/61 mmHg\nGlucose (Fasting): 152 mg/dL\n\nINTERPRETATION:\n- Elevated blood glucose\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 58,
+      "cholesterol": 186,
+      "glucose": 152,
+      "blood_pressure": "129/61",
+      "hemoglobin": 17.12492515963643
+    }
+  },
+  {
+    "id": 32,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 41 years\nDate: 2024-01-05\n\nRESULTS:\nHemoglobin: 17.8 g/dL\nCholesterol: 201 mg/dL\nBlood Pressure: 107/109 mmHg\nGlucose (Fasting): 106 mg/dL\n\nINTERPRETATION:\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 41,
+      "cholesterol": 201,
+      "glucose": 106,
+      "blood_pressure": "107/109",
+      "hemoglobin": 17.849696234518618
+    }
+  },
+  {
+    "id": 33,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 68 years\nDate: 2024-01-06\n\nRESULTS:\nHemoglobin: 11.5 g/dL\nCholesterol: 178 mg/dL\nBlood Pressure: 143/74 mmHg\nGlucose (Fasting): 172 mg/dL\n\nINTERPRETATION:\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 68,
+      "cholesterol": 178,
+      "glucose": 172,
+      "blood_pressure": "143/74",
+      "hemoglobin": 11.469398358743147
+    }
+  },
+  {
+    "id": 34,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 77 years\nDate: 2024-01-07\n\nRESULTS:\nHemoglobin: 17.6 g/dL\nCholesterol: 285 mg/dL\nBlood Pressure: 161/106 mmHg\nGlucose (Fasting): 74 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 77,
+      "cholesterol": 285,
+      "glucose": 74,
+      "blood_pressure": "161/106",
+      "hemoglobin": 17.629589771251762
+    }
+  },
+  {
+    "id": 35,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 58 years\nDate: 2024-01-08\n\nRESULTS:\nHemoglobin: 15.1 g/dL\nCholesterol: 180 mg/dL\nBlood Pressure: 131/78 mmHg\nGlucose (Fasting): 99 mg/dL\n\nINTERPRETATION:\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 58,
+      "cholesterol": 180,
+      "glucose": 99,
+      "blood_pressure": "131/78",
+      "hemoglobin": 15.085365645177616
+    }
+  },
+  {
+    "id": 36,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 39 years\nDate: 2024-01-09\n\nRESULTS:\nHemoglobin: 16.8 g/dL\nCholesterol: 175 mg/dL\nBlood Pressure: 110/87 mmHg\nGlucose (Fasting): 135 mg/dL\n\nINTERPRETATION:\n- Elevated blood glucose\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 39,
+      "cholesterol": 175,
+      "glucose": 135,
+      "blood_pressure": "110/87",
+      "hemoglobin": 16.763085061845196
+    }
+  },
+  {
+    "id": 37,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 53 years\nDate: 2024-01-10\n\nRESULTS:\nHemoglobin: 17.9 g/dL\nCholesterol: 173 mg/dL\nBlood Pressure: 141/87 mmHg\nGlucose (Fasting): 132 mg/dL\n\nINTERPRETATION:\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 53,
+      "cholesterol": 173,
+      "glucose": 132,
+      "blood_pressure": "141/87",
+      "hemoglobin": 17.92985866030132
+    }
+  },
+  {
+    "id": 38,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 77 years\nDate: 2024-01-11\n\nRESULTS:\nHemoglobin: 14.1 g/dL\nCholesterol: 164 mg/dL\nBlood Pressure: 171/103 mmHg\nGlucose (Fasting): 108 mg/dL\n\nINTERPRETATION:\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 77,
+      "cholesterol": 164,
+      "glucose": 108,
+      "blood_pressure": "171/103",
+      "hemoglobin": 14.111338100705623
+    }
+  },
+  {
+    "id": 39,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 71 years\nDate: 2024-01-12\n\nRESULTS:\nHemoglobin: 17.8 g/dL\nCholesterol: 215 mg/dL\nBlood Pressure: 175/82 mmHg\nGlucose (Fasting): 118 mg/dL\n\nINTERPRETATION:\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 71,
+      "cholesterol": 215,
+      "glucose": 118,
+      "blood_pressure": "175/82",
+      "hemoglobin": 17.79052347521496
+    }
+  },
+  {
+    "id": 40,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 74 years\nDate: 2024-01-13\n\nRESULTS:\nHemoglobin: 17.3 g/dL\nCholesterol: 237 mg/dL\nBlood Pressure: 154/115 mmHg\nGlucose (Fasting): 90 mg/dL\n\nINTERPRETATION:\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 74,
+      "cholesterol": 237,
+      "glucose": 90,
+      "blood_pressure": "154/115",
+      "hemoglobin": 17.290614911455435
+    }
+  },
+  {
+    "id": 41,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 58 years\nDate: 2024-01-14\n\nRESULTS:\nHemoglobin: 11.4 g/dL\nCholesterol: 280 mg/dL\nBlood Pressure: 121/88 mmHg\nGlucose (Fasting): 149 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- Elevated blood glucose\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 58,
+      "cholesterol": 280,
+      "glucose": 149,
+      "blood_pressure": "121/88",
+      "hemoglobin": 11.381324108688146
+    }
+  },
+  {
+    "id": 42,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 61 years\nDate: 2024-01-15\n\nRESULTS:\nHemoglobin: 17.1 g/dL\nCholesterol: 218 mg/dL\nBlood Pressure: 157/69 mmHg\nGlucose (Fasting): 159 mg/dL\n\nINTERPRETATION:\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 61,
+      "cholesterol": 218,
+      "glucose": 159,
+      "blood_pressure": "157/69",
+      "hemoglobin": 17.0567903188712
+    }
+  },
+  {
+    "id": 43,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 47 years\nDate: 2024-01-16\n\nRESULTS:\nHemoglobin: 14.3 g/dL\nCholesterol: 251 mg/dL\nBlood Pressure: 157/108 mmHg\nGlucose (Fasting): 131 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 47,
+      "cholesterol": 251,
+      "glucose": 131,
+      "blood_pressure": "157/108",
+      "hemoglobin": 14.310447692204441
+    }
+  },
+  {
+    "id": 44,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 33 years\nDate: 2024-01-17\n\nRESULTS:\nHemoglobin: 16.9 g/dL\nCholesterol: 160 mg/dL\nBlood Pressure: 177/108 mmHg\nGlucose (Fasting): 143 mg/dL\n\nINTERPRETATION:\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 33,
+      "cholesterol": 160,
+      "glucose": 143,
+      "blood_pressure": "177/108",
+      "hemoglobin": 16.90316655701253
+    }
+  },
+  {
+    "id": 45,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 43 years\nDate: 2024-01-18\n\nRESULTS:\nHemoglobin: 16.1 g/dL\nCholesterol: 295 mg/dL\nBlood Pressure: 162/86 mmHg\nGlucose (Fasting): 121 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 43,
+      "cholesterol": 295,
+      "glucose": 121,
+      "blood_pressure": "162/86",
+      "hemoglobin": 16.144777923561804
+    }
+  },
+  {
+    "id": 46,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 67 years\nDate: 2024-01-19\n\nRESULTS:\nHemoglobin: 10.3 g/dL\nCholesterol: 255 mg/dL\nBlood Pressure: 122/89 mmHg\nGlucose (Fasting): 153 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- Elevated blood glucose\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 67,
+      "cholesterol": 255,
+      "glucose": 153,
+      "blood_pressure": "122/89",
+      "hemoglobin": 10.34371656737531
+    }
+  },
+  {
+    "id": 47,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 72 years\nDate: 2024-01-20\n\nRESULTS:\nHemoglobin: 16.9 g/dL\nCholesterol: 238 mg/dL\nBlood Pressure: 164/60 mmHg\nGlucose (Fasting): 77 mg/dL\n\nINTERPRETATION:\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 72,
+      "cholesterol": 238,
+      "glucose": 77,
+      "blood_pressure": "164/60",
+      "hemoglobin": 16.850584320704876
+    }
+  },
+  {
+    "id": 48,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 76 years\nDate: 2024-01-21\n\nRESULTS:\nHemoglobin: 11.3 g/dL\nCholesterol: 201 mg/dL\nBlood Pressure: 122/79 mmHg\nGlucose (Fasting): 131 mg/dL\n\nINTERPRETATION:\n- Elevated blood glucose\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 76,
+      "cholesterol": 201,
+      "glucose": 131,
+      "blood_pressure": "122/79",
+      "hemoglobin": 11.334249477435087
+    }
+  },
+  {
+    "id": 49,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 36 years\nDate: 2024-01-22\n\nRESULTS:\nHemoglobin: 15.4 g/dL\nCholesterol: 156 mg/dL\nBlood Pressure: 172/64 mmHg\nGlucose (Fasting): 105 mg/dL\n\nINTERPRETATION:\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 36,
+      "cholesterol": 156,
+      "glucose": 105,
+      "blood_pressure": "172/64",
+      "hemoglobin": 15.393235540939036
+    }
+  },
+  {
+    "id": 50,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 59 years\nDate: 2024-01-23\n\nRESULTS:\nHemoglobin: 13.8 g/dL\nCholesterol: 173 mg/dL\nBlood Pressure: 132/87 mmHg\nGlucose (Fasting): 124 mg/dL\n\nINTERPRETATION:\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 59,
+      "cholesterol": 173,
+      "glucose": 124,
+      "blood_pressure": "132/87",
+      "hemoglobin": 13.780305653853699
+    }
+  },
+  {
+    "id": 51,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 75 years\nDate: 2024-01-24\n\nRESULTS:\nHemoglobin: 11.8 g/dL\nCholesterol: 233 mg/dL\nBlood Pressure: 165/112 mmHg\nGlucose (Fasting): 156 mg/dL\n\nINTERPRETATION:\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 75,
+      "cholesterol": 233,
+      "glucose": 156,
+      "blood_pressure": "165/112",
+      "hemoglobin": 11.83225241896178
+    }
+  },
+  {
+    "id": 52,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 47 years\nDate: 2024-01-25\n\nRESULTS:\nHemoglobin: 10.3 g/dL\nCholesterol: 290 mg/dL\nBlood Pressure: 136/67 mmHg\nGlucose (Fasting): 104 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 47,
+      "cholesterol": 290,
+      "glucose": 104,
+      "blood_pressure": "136/67",
+      "hemoglobin": 10.266422181585117
+    }
+  },
+  {
+    "id": 53,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 35 years\nDate: 2024-01-26\n\nRESULTS:\nHemoglobin: 13.9 g/dL\nCholesterol: 191 mg/dL\nBlood Pressure: 122/115 mmHg\nGlucose (Fasting): 147 mg/dL\n\nINTERPRETATION:\n- Elevated blood glucose\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 35,
+      "cholesterol": 191,
+      "glucose": 147,
+      "blood_pressure": "122/115",
+      "hemoglobin": 13.881269960958742
+    }
+  },
+  {
+    "id": 54,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 79 years\nDate: 2024-01-27\n\nRESULTS:\nHemoglobin: 11.4 g/dL\nCholesterol: 261 mg/dL\nBlood Pressure: 133/117 mmHg\nGlucose (Fasting): 177 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- Elevated blood glucose\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 79,
+      "cholesterol": 261,
+      "glucose": 177,
+      "blood_pressure": "133/117",
+      "hemoglobin": 11.43529367397489
+    }
+  },
+  {
+    "id": 55,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 41 years\nDate: 2024-01-28\n\nRESULTS:\nHemoglobin: 16.2 g/dL\nCholesterol: 264 mg/dL\nBlood Pressure: 171/61 mmHg\nGlucose (Fasting): 129 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 41,
+      "cholesterol": 264,
+      "glucose": 129,
+      "blood_pressure": "171/61",
+      "hemoglobin": 16.24840190248638
+    }
+  },
+  {
+    "id": 56,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 62 years\nDate: 2024-01-01\n\nRESULTS:\nHemoglobin: 12.2 g/dL\nCholesterol: 159 mg/dL\nBlood Pressure: 169/109 mmHg\nGlucose (Fasting): 165 mg/dL\n\nINTERPRETATION:\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 62,
+      "cholesterol": 159,
+      "glucose": 165,
+      "blood_pressure": "169/109",
+      "hemoglobin": 12.175894937296727
+    }
+  },
+  {
+    "id": 57,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 66 years\nDate: 2024-01-02\n\nRESULTS:\nHemoglobin: 16.4 g/dL\nCholesterol: 199 mg/dL\nBlood Pressure: 151/86 mmHg\nGlucose (Fasting): 147 mg/dL\n\nINTERPRETATION:\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 66,
+      "cholesterol": 199,
+      "glucose": 147,
+      "blood_pressure": "151/86",
+      "hemoglobin": 16.35120993382624
+    }
+  },
+  {
+    "id": 58,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 74 years\nDate: 2024-01-03\n\nRESULTS:\nHemoglobin: 17.7 g/dL\nCholesterol: 293 mg/dL\nBlood Pressure: 116/84 mmHg\nGlucose (Fasting): 155 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- Elevated blood glucose\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 74,
+      "cholesterol": 293,
+      "glucose": 155,
+      "blood_pressure": "116/84",
+      "hemoglobin": 17.67680697882765
+    }
+  },
+  {
+    "id": 59,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 55 years\nDate: 2024-01-04\n\nRESULTS:\nHemoglobin: 10.8 g/dL\nCholesterol: 295 mg/dL\nBlood Pressure: 143/100 mmHg\nGlucose (Fasting): 116 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 55,
+      "cholesterol": 295,
+      "glucose": 116,
+      "blood_pressure": "143/100",
+      "hemoglobin": 10.781259710422397
+    }
+  },
+  {
+    "id": 60,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 48 years\nDate: 2024-01-05\n\nRESULTS:\nHemoglobin: 17.7 g/dL\nCholesterol: 160 mg/dL\nBlood Pressure: 158/75 mmHg\nGlucose (Fasting): 162 mg/dL\n\nINTERPRETATION:\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 48,
+      "cholesterol": 160,
+      "glucose": 162,
+      "blood_pressure": "158/75",
+      "hemoglobin": 17.672227726380996
+    }
+  },
+  {
+    "id": 61,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 39 years\nDate: 2024-01-06\n\nRESULTS:\nHemoglobin: 10.2 g/dL\nCholesterol: 295 mg/dL\nBlood Pressure: 155/116 mmHg\nGlucose (Fasting): 171 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 39,
+      "cholesterol": 295,
+      "glucose": 171,
+      "blood_pressure": "155/116",
+      "hemoglobin": 10.202995239190631
+    }
+  },
+  {
+    "id": 62,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 54 years\nDate: 2024-01-07\n\nRESULTS:\nHemoglobin: 15.0 g/dL\nCholesterol: 283 mg/dL\nBlood Pressure: 128/61 mmHg\nGlucose (Fasting): 129 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- Elevated blood glucose\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 54,
+      "cholesterol": 283,
+      "glucose": 129,
+      "blood_pressure": "128/61",
+      "hemoglobin": 14.994639923387712
+    }
+  },
+  {
+    "id": 63,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 36 years\nDate: 2024-01-08\n\nRESULTS:\nHemoglobin: 10.0 g/dL\nCholesterol: 268 mg/dL\nBlood Pressure: 152/106 mmHg\nGlucose (Fasting): 172 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 36,
+      "cholesterol": 268,
+      "glucose": 172,
+      "blood_pressure": "152/106",
+      "hemoglobin": 10.02719031023769
+    }
+  },
+  {
+    "id": 64,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 71 years\nDate: 2024-01-09\n\nRESULTS:\nHemoglobin: 13.7 g/dL\nCholesterol: 163 mg/dL\nBlood Pressure: 121/60 mmHg\nGlucose (Fasting): 194 mg/dL\n\nINTERPRETATION:\n- Elevated blood glucose\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 71,
+      "cholesterol": 163,
+      "glucose": 194,
+      "blood_pressure": "121/60",
+      "hemoglobin": 13.650282384988351
+    }
+  },
+  {
+    "id": 65,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 74 years\nDate: 2024-01-10\n\nRESULTS:\nHemoglobin: 12.7 g/dL\nCholesterol: 153 mg/dL\nBlood Pressure: 161/86 mmHg\nGlucose (Fasting): 134 mg/dL\n\nINTERPRETATION:\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 74,
+      "cholesterol": 153,
+      "glucose": 134,
+      "blood_pressure": "161/86",
+      "hemoglobin": 12.71406678745856
+    }
+  },
+  {
+    "id": 66,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 51 years\nDate: 2024-01-11\n\nRESULTS:\nHemoglobin: 11.8 g/dL\nCholesterol: 276 mg/dL\nBlood Pressure: 138/95 mmHg\nGlucose (Fasting): 148 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- Elevated blood glucose\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 51,
+      "cholesterol": 276,
+      "glucose": 148,
+      "blood_pressure": "138/95",
+      "hemoglobin": 11.826117680179959
+    }
+  },
+  {
+    "id": 67,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 59 years\nDate: 2024-01-12\n\nRESULTS:\nHemoglobin: 15.9 g/dL\nCholesterol: 188 mg/dL\nBlood Pressure: 108/101 mmHg\nGlucose (Fasting): 192 mg/dL\n\nINTERPRETATION:\n- Elevated blood glucose\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 59,
+      "cholesterol": 188,
+      "glucose": 192,
+      "blood_pressure": "108/101",
+      "hemoglobin": 15.92727119419286
+    }
+  },
+  {
+    "id": 68,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 34 years\nDate: 2024-01-13\n\nRESULTS:\nHemoglobin: 14.5 g/dL\nCholesterol: 280 mg/dL\nBlood Pressure: 169/86 mmHg\nGlucose (Fasting): 70 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 34,
+      "cholesterol": 280,
+      "glucose": 70,
+      "blood_pressure": "169/86",
+      "hemoglobin": 14.45943163379653
+    }
+  },
+  {
+    "id": 69,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 40 years\nDate: 2024-01-14\n\nRESULTS:\nHemoglobin: 17.7 g/dL\nCholesterol: 281 mg/dL\nBlood Pressure: 113/68 mmHg\nGlucose (Fasting): 108 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 40,
+      "cholesterol": 281,
+      "glucose": 108,
+      "blood_pressure": "113/68",
+      "hemoglobin": 17.703654689339515
+    }
+  },
+  {
+    "id": 70,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 42 years\nDate: 2024-01-15\n\nRESULTS:\nHemoglobin: 15.8 g/dL\nCholesterol: 208 mg/dL\nBlood Pressure: 153/108 mmHg\nGlucose (Fasting): 115 mg/dL\n\nINTERPRETATION:\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 42,
+      "cholesterol": 208,
+      "glucose": 115,
+      "blood_pressure": "153/108",
+      "hemoglobin": 15.778291433148551
+    }
+  },
+  {
+    "id": 71,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 79 years\nDate: 2024-01-16\n\nRESULTS:\nHemoglobin: 13.9 g/dL\nCholesterol: 150 mg/dL\nBlood Pressure: 136/67 mmHg\nGlucose (Fasting): 107 mg/dL\n\nINTERPRETATION:\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 79,
+      "cholesterol": 150,
+      "glucose": 107,
+      "blood_pressure": "136/67",
+      "hemoglobin": 13.856985051100747
+    }
+  },
+  {
+    "id": 72,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 37 years\nDate: 2024-01-17\n\nRESULTS:\nHemoglobin: 17.0 g/dL\nCholesterol: 283 mg/dL\nBlood Pressure: 114/79 mmHg\nGlucose (Fasting): 76 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 37,
+      "cholesterol": 283,
+      "glucose": 76,
+      "blood_pressure": "114/79",
+      "hemoglobin": 17.04770867523898
+    }
+  },
+  {
+    "id": 73,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 77 years\nDate: 2024-01-18\n\nRESULTS:\nHemoglobin: 12.3 g/dL\nCholesterol: 179 mg/dL\nBlood Pressure: 167/74 mmHg\nGlucose (Fasting): 98 mg/dL\n\nINTERPRETATION:\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 77,
+      "cholesterol": 179,
+      "glucose": 98,
+      "blood_pressure": "167/74",
+      "hemoglobin": 12.291266645835545
+    }
+  },
+  {
+    "id": 74,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 35 years\nDate: 2024-01-19\n\nRESULTS:\nHemoglobin: 17.4 g/dL\nCholesterol: 193 mg/dL\nBlood Pressure: 141/80 mmHg\nGlucose (Fasting): 136 mg/dL\n\nINTERPRETATION:\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 35,
+      "cholesterol": 193,
+      "glucose": 136,
+      "blood_pressure": "141/80",
+      "hemoglobin": 17.387884565977433
+    }
+  },
+  {
+    "id": 75,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 41 years\nDate: 2024-01-20\n\nRESULTS:\nHemoglobin: 11.3 g/dL\nCholesterol: 212 mg/dL\nBlood Pressure: 149/86 mmHg\nGlucose (Fasting): 186 mg/dL\n\nINTERPRETATION:\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 41,
+      "cholesterol": 212,
+      "glucose": 186,
+      "blood_pressure": "149/86",
+      "hemoglobin": 11.273790115654862
+    }
+  },
+  {
+    "id": 76,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 48 years\nDate: 2024-01-21\n\nRESULTS:\nHemoglobin: 11.1 g/dL\nCholesterol: 161 mg/dL\nBlood Pressure: 109/114 mmHg\nGlucose (Fasting): 141 mg/dL\n\nINTERPRETATION:\n- Elevated blood glucose\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 48,
+      "cholesterol": 161,
+      "glucose": 141,
+      "blood_pressure": "109/114",
+      "hemoglobin": 11.07192309472965
+    }
+  },
+  {
+    "id": 77,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 69 years\nDate: 2024-01-22\n\nRESULTS:\nHemoglobin: 16.6 g/dL\nCholesterol: 154 mg/dL\nBlood Pressure: 146/119 mmHg\nGlucose (Fasting): 94 mg/dL\n\nINTERPRETATION:\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 69,
+      "cholesterol": 154,
+      "glucose": 94,
+      "blood_pressure": "146/119",
+      "hemoglobin": 16.644400834994972
+    }
+  },
+  {
+    "id": 78,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 36 years\nDate: 2024-01-23\n\nRESULTS:\nHemoglobin: 13.4 g/dL\nCholesterol: 165 mg/dL\nBlood Pressure: 169/68 mmHg\nGlucose (Fasting): 185 mg/dL\n\nINTERPRETATION:\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 36,
+      "cholesterol": 165,
+      "glucose": 185,
+      "blood_pressure": "169/68",
+      "hemoglobin": 13.414177180340989
+    }
+  },
+  {
+    "id": 79,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 54 years\nDate: 2024-01-24\n\nRESULTS:\nHemoglobin: 13.6 g/dL\nCholesterol: 273 mg/dL\nBlood Pressure: 155/74 mmHg\nGlucose (Fasting): 96 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 54,
+      "cholesterol": 273,
+      "glucose": 96,
+      "blood_pressure": "155/74",
+      "hemoglobin": 13.620282332883427
+    }
+  },
+  {
+    "id": 80,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 33 years\nDate: 2024-01-25\n\nRESULTS:\nHemoglobin: 10.9 g/dL\nCholesterol: 294 mg/dL\nBlood Pressure: 177/70 mmHg\nGlucose (Fasting): 144 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 33,
+      "cholesterol": 294,
+      "glucose": 144,
+      "blood_pressure": "177/70",
+      "hemoglobin": 10.87248430288733
+    }
+  },
+  {
+    "id": 81,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 56 years\nDate: 2024-01-26\n\nRESULTS:\nHemoglobin: 15.1 g/dL\nCholesterol: 184 mg/dL\nBlood Pressure: 174/98 mmHg\nGlucose (Fasting): 160 mg/dL\n\nINTERPRETATION:\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 56,
+      "cholesterol": 184,
+      "glucose": 160,
+      "blood_pressure": "174/98",
+      "hemoglobin": 15.108399961301494
+    }
+  },
+  {
+    "id": 82,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 33 years\nDate: 2024-01-27\n\nRESULTS:\nHemoglobin: 10.6 g/dL\nCholesterol: 249 mg/dL\nBlood Pressure: 135/62 mmHg\nGlucose (Fasting): 125 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 33,
+      "cholesterol": 249,
+      "glucose": 125,
+      "blood_pressure": "135/62",
+      "hemoglobin": 10.556930987929578
+    }
+  },
+  {
+    "id": 83,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 35 years\nDate: 2024-01-28\n\nRESULTS:\nHemoglobin: 13.7 g/dL\nCholesterol: 287 mg/dL\nBlood Pressure: 129/103 mmHg\nGlucose (Fasting): 176 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- Elevated blood glucose\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 35,
+      "cholesterol": 287,
+      "glucose": 176,
+      "blood_pressure": "129/103",
+      "hemoglobin": 13.727333904678723
+    }
+  },
+  {
+    "id": 84,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 65 years\nDate: 2024-01-01\n\nRESULTS:\nHemoglobin: 10.2 g/dL\nCholesterol: 202 mg/dL\nBlood Pressure: 177/64 mmHg\nGlucose (Fasting): 86 mg/dL\n\nINTERPRETATION:\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 65,
+      "cholesterol": 202,
+      "glucose": 86,
+      "blood_pressure": "177/64",
+      "hemoglobin": 10.163842375734404
+    }
+  },
+  {
+    "id": 85,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 64 years\nDate: 2024-01-02\n\nRESULTS:\nHemoglobin: 14.2 g/dL\nCholesterol: 226 mg/dL\nBlood Pressure: 147/78 mmHg\nGlucose (Fasting): 133 mg/dL\n\nINTERPRETATION:\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 64,
+      "cholesterol": 226,
+      "glucose": 133,
+      "blood_pressure": "147/78",
+      "hemoglobin": 14.231956856257579
+    }
+  },
+  {
+    "id": 86,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 52 years\nDate: 2024-01-03\n\nRESULTS:\nHemoglobin: 16.1 g/dL\nCholesterol: 254 mg/dL\nBlood Pressure: 112/103 mmHg\nGlucose (Fasting): 115 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 52,
+      "cholesterol": 254,
+      "glucose": 115,
+      "blood_pressure": "112/103",
+      "hemoglobin": 16.052918653790304
+    }
+  },
+  {
+    "id": 87,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 55 years\nDate: 2024-01-04\n\nRESULTS:\nHemoglobin: 15.8 g/dL\nCholesterol: 276 mg/dL\nBlood Pressure: 112/84 mmHg\nGlucose (Fasting): 127 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- Elevated blood glucose\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 55,
+      "cholesterol": 276,
+      "glucose": 127,
+      "blood_pressure": "112/84",
+      "hemoglobin": 15.757149633153826
+    }
+  },
+  {
+    "id": 88,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 74 years\nDate: 2024-01-05\n\nRESULTS:\nHemoglobin: 13.1 g/dL\nCholesterol: 223 mg/dL\nBlood Pressure: 114/84 mmHg\nGlucose (Fasting): 184 mg/dL\n\nINTERPRETATION:\n- Elevated blood glucose\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 74,
+      "cholesterol": 223,
+      "glucose": 184,
+      "blood_pressure": "114/84",
+      "hemoglobin": 13.071411562222565
+    }
+  },
+  {
+    "id": 89,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 42 years\nDate: 2024-01-06\n\nRESULTS:\nHemoglobin: 16.1 g/dL\nCholesterol: 273 mg/dL\nBlood Pressure: 176/79 mmHg\nGlucose (Fasting): 113 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 42,
+      "cholesterol": 273,
+      "glucose": 113,
+      "blood_pressure": "176/79",
+      "hemoglobin": 16.05058791489705
+    }
+  },
+  {
+    "id": 90,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 61 years\nDate: 2024-01-07\n\nRESULTS:\nHemoglobin: 10.3 g/dL\nCholesterol: 176 mg/dL\nBlood Pressure: 176/115 mmHg\nGlucose (Fasting): 127 mg/dL\n\nINTERPRETATION:\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 61,
+      "cholesterol": 176,
+      "glucose": 127,
+      "blood_pressure": "176/115",
+      "hemoglobin": 10.265519661065124
+    }
+  },
+  {
+    "id": 91,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 60 years\nDate: 2024-01-08\n\nRESULTS:\nHemoglobin: 18.0 g/dL\nCholesterol: 295 mg/dL\nBlood Pressure: 110/102 mmHg\nGlucose (Fasting): 94 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 60,
+      "cholesterol": 295,
+      "glucose": 94,
+      "blood_pressure": "110/102",
+      "hemoglobin": 17.9791207131732
+    }
+  },
+  {
+    "id": 92,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 53 years\nDate: 2024-01-09\n\nRESULTS:\nHemoglobin: 11.1 g/dL\nCholesterol: 184 mg/dL\nBlood Pressure: 123/117 mmHg\nGlucose (Fasting): 115 mg/dL\n\nINTERPRETATION:\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 53,
+      "cholesterol": 184,
+      "glucose": 115,
+      "blood_pressure": "123/117",
+      "hemoglobin": 11.139225836379165
+    }
+  },
+  {
+    "id": 93,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 64 years\nDate: 2024-01-10\n\nRESULTS:\nHemoglobin: 12.7 g/dL\nCholesterol: 297 mg/dL\nBlood Pressure: 127/94 mmHg\nGlucose (Fasting): 108 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 64,
+      "cholesterol": 297,
+      "glucose": 108,
+      "blood_pressure": "127/94",
+      "hemoglobin": 12.702762304951378
+    }
+  },
+  {
+    "id": 94,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 75 years\nDate: 2024-01-11\n\nRESULTS:\nHemoglobin: 13.9 g/dL\nCholesterol: 229 mg/dL\nBlood Pressure: 146/96 mmHg\nGlucose (Fasting): 126 mg/dL\n\nINTERPRETATION:\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 75,
+      "cholesterol": 229,
+      "glucose": 126,
+      "blood_pressure": "146/96",
+      "hemoglobin": 13.902339369673825
+    }
+  },
+  {
+    "id": 95,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 52 years\nDate: 2024-01-12\n\nRESULTS:\nHemoglobin: 17.2 g/dL\nCholesterol: 157 mg/dL\nBlood Pressure: 156/98 mmHg\nGlucose (Fasting): 120 mg/dL\n\nINTERPRETATION:\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 52,
+      "cholesterol": 157,
+      "glucose": 120,
+      "blood_pressure": "156/98",
+      "hemoglobin": 17.190700947462346
+    }
+  },
+  {
+    "id": 96,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 41 years\nDate: 2024-01-13\n\nRESULTS:\nHemoglobin: 12.5 g/dL\nCholesterol: 263 mg/dL\nBlood Pressure: 140/110 mmHg\nGlucose (Fasting): 182 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- Elevated blood glucose\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 41,
+      "cholesterol": 263,
+      "glucose": 182,
+      "blood_pressure": "140/110",
+      "hemoglobin": 12.490189566255392
+    }
+  },
+  {
+    "id": 97,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 38 years\nDate: 2024-01-14\n\nRESULTS:\nHemoglobin: 15.3 g/dL\nCholesterol: 297 mg/dL\nBlood Pressure: 168/65 mmHg\nGlucose (Fasting): 163 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- Elevated blood glucose\n- High blood pressure\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 38,
+      "cholesterol": 297,
+      "glucose": 163,
+      "blood_pressure": "168/65",
+      "hemoglobin": 15.253100306656748
+    }
+  },
+  {
+    "id": 98,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 66 years\nDate: 2024-01-15\n\nRESULTS:\nHemoglobin: 12.9 g/dL\nCholesterol: 250 mg/dL\nBlood Pressure: 138/65 mmHg\nGlucose (Fasting): 129 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- Elevated blood glucose\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 66,
+      "cholesterol": 250,
+      "glucose": 129,
+      "blood_pressure": "138/65",
+      "hemoglobin": 12.909429108006702
+    }
+  },
+  {
+    "id": 99,
+    "text": "\nBLOOD TEST REPORT\nPatient Age: 79 years\nDate: 2024-01-16\n\nRESULTS:\nHemoglobin: 11.5 g/dL\nCholesterol: 259 mg/dL\nBlood Pressure: 125/79 mmHg\nGlucose (Fasting): 142 mg/dL\n\nINTERPRETATION:\n- High cholesterol detected\n- Elevated blood glucose\n\nRecommendation: Follow-up with physician",
+    "labels": {
+      "age": 79,
+      "cholesterol": 259,
+      "glucose": 142,
+      "blood_pressure": "125/79",
+      "hemoglobin": 11.467144968721097
+    }
+  }
+]

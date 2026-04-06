@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardiac Health AI Platform - Architecture & Workflow</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        
+        header h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-card h3 {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+        
+        .stat-card p {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        .section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .section h3 {
+            color: #764ba2;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .mermaid {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .feature-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .feature-card h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .feature-card p {
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        .model-comparison {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .model-comparison th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .model-comparison td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .model-comparison tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .success {
+            background: #d4edda;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #28a745;
+            color: #155724;
+        }
+        
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ddd;
+        }
+        
+        .tab-button {
+            padding: 10px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .tab-button.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        footer {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-top: 30px;
+            color: #666;
+        }
+        
+        .neural-network {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .layer {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .neuron {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #667eea;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        
+        .layer-label {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Cardiac Health AI</h1>
+            <p>ML-based heart disease detection system</p>
+            <div class="stats">
+                <div class="stat-card">
+                    <h3>98.07%</h3>
+                    <p>AUC</p>
+                </div>
+                <div class="stat-card">
+                    <h3>94.4%</h3>
+                    <p>Accuracy</p>
+                </div>
+                <div class="stat-card">
+                    <h3>90.1%</h3>
+                    <p>Sensitivity</p>
+                </div>
+                <div class="stat-card">
+                    <h3>93.3%</h3>
+                    <p>Precision</p>
+                </div>
+            </div>
+        </header>
+        
+        <!-- System Architecture Section -->
+        <div class="section">
+            <h2>System Architecture</h2>
+            <p>The platform connects 11 backend services to handle predictions, OCR, image analysis, and recommendations:</p>
+            <div class="mermaid">
+                graph TB
+                    subgraph Client["Client Layer"]
+                        A["Android App<br/>(TensorFlow Lite)"]
+                        B["Web Interface"]
+                    end
+                    
+                    subgraph API["FastAPI Backend"]
+                        D["REST API<br/>(15+ endpoints)"]
+                        E["Request Validation"]
+                    end
+                    
+                    subgraph Services["Service Layer"]
+                        G["OCR Service<br/>(Tesseract)"]
+                        H["Advanced OCR<br/>(Format-specific)"]
+                        I["ML Prediction<br/>(Ensemble)"]
+                        J["Image Processing<br/>(ECG/X-ray)"]
+                        K["Fusion Model<br/>(Multi-source)"]
+                        L["Explanation Service<br/>(SHAP)"]
+                        M["Recommendation<br/>(Practo/Maps)"]
+                    end
+                    
+                    subgraph ML["ML Pipeline"]
+                        N["Data Preprocessing"]
+                        O["Feature Engineering<br/>(18 features)"]
+                        P["Ensemble Inference"]
+                        Q["Probability Calibration"]
+                    end
+                    
+                    subgraph Models["Model Ensemble"]
+                        R["XGBoost<br/>97.85% AUC"]
+                        S["Random Forest<br/>97.82% AUC"]
+                        T["Gradient Boosting<br/>98.06% AUC"]
+                        U["Extra Trees<br/>97.85% AUC"]
+                        V["AdaBoost<br/>97.01% AUC"]
+                        W["Meta-Learner<br/>LogisticRegression"]
+                    end
+                    
+                    subgraph Data["Data & Storage"]
+                        X["PostgreSQL<br/>(User data)"]
+                        Y["Redis<br/>(Cache)"]
+                        Z["Model Files<br/>(joblib)"]
+                    end
+                    
+                    A --> D
+                    B --> D
+                    D --> E
+                    E --> G
+                    E --> H
+                    E --> I
+                    E --> J
+                    E --> K
+                    E --> L
+                    E --> M
+                    G --> N
+                    H --> N
+                    J --> N
+                    N --> O
+                    O --> P
+                    P --> R
+                    P --> S
+                    P --> T
+                    P --> U
+                    P --> V
+                    R --> W
+                    S --> W
+                    T --> W
+                    U --> W
+                    V --> W
+                    W --> Q
+                    Q --> L
+                    Q --> M
+                    X --> I
+                    Y --> I
+                    Z --> P
+            </div>
+        </div>
+        
+        <!-- Data Flow Section -->
+        <div class="section">
+            <h2>Data Flow: Input to Prediction</h2>
+            <p>What happens when you submit patient data:</p>
+            <div class="mermaid">
+                graph LR
+                    A["📋 Patient Data<br/>13 Features"] --> B["🔍 Data Validation<br/>Check Ranges"]
+                    B --> C["🧹 Outlier Detection<br/>Elliptic Envelope"]
+                    C --> D["⚙️ Feature Engineering<br/>6 New Features"]
+                    D --> E["📊 Scaling<br/>QuantileTransformer"]
+                    E --> F["🧠 Model Inference<br/>5 Base Models"]
+                    F --> G["🎯 Meta-Learner<br/>LogisticRegression"]
+                    G --> H["📈 Calibration<br/>Platt Sigmoid"]
+                    H --> I["✅ Prediction<br/>Disease Probability"]
+                    I --> J["💊 Recommendations<br/>Risk Level"]
+                    J --> K["📱 Output<br/>Risk Assessment"]
+            </div>
+        </div>
+        
+        <!-- Neural Network Architecture -->
+        <div class="section">
+            <h2>How the Model Works</h2>
+            
+            <h3>Combining Multiple Models</h3>
+            <div class="mermaid">
+                graph TB
+                    subgraph Input["Input Layer"]
+                        I["18 Features<br/>Scaled Data"]
+                    end
+                    
+                    subgraph Base["Base Models Layer"]
+                        B1["XGBoost<br/>800 Trees<br/>97.85% AUC"]
+                        B2["Random Forest<br/>800 Trees<br/>97.82% AUC"]
+                        B3["Gradient Boosting<br/>800 Trees<br/>98.06% AUC"]
+                        B4["Extra Trees<br/>800 Trees<br/>97.85% AUC"]
+                        B5["AdaBoost<br/>800 Trees<br/>97.01% AUC"]
+                    end
+                    
+                    subgraph Meta["Meta-Learner Layer"]
+                        M["LogisticRegression<br/>Learns Optimal Weights"]
+                    end
+                    
+                    subgraph Calibration["Calibration Layer"]
+                        C["Platt Sigmoid<br/>5-Fold CV"]
+                    end
+                    
+                    subgraph Output["Output Layer"]
+                        O["Disease Probability<br/>0.0 - 1.0"]
+                    end
+                    
+                    I --> B1
+                    I --> B2
+                    I --> B3
+                    I --> B4
+                    I --> B5
+                    B1 --> M
+                    B2 --> M
+                    B3 --> M
+                    B4 --> M
+                    B5 --> M
+                    M --> C
+                    C --> O
+            </div>
+            
+            <h3>Creating New Features from Existing Data</h3>
+            <div class="mermaid">
+                graph LR
+                    subgraph Original["Original Features (13)"]
+                        O1["Age"]
+                        O2["Sex"]
+                        O3["Chest Pain Type"]
+                        O4["Resting BP"]
+                        O5["Cholesterol"]
+                        O6["Fasting BS"]
+                        O7["Resting ECG"]
+                        O8["Max Heart Rate"]
+                        O9["Exercise Angina"]
+                        O10["ST Depression"]
+                        O11["ST Slope"]
+                        O12["Major Vessels"]
+                        O13["Thalassemia"]
+                    end
+                    
+                    subgraph Engineered["Engineered Features (6)"]
+                        E1["BP × Cholesterol"]
+                        E2["Heart Rate / BP"]
+                        E3["ST Dep × HR"]
+                        E4["√ST Depression"]
+                        E5["Chol / Fasting BS"]
+                    end
+                    
+                    subgraph Final["Final Features (18)"]
+                        F["All 13 Original<br/>+ 5 Engineered"]
+                    end
+                    
+                    O1 --> E1
+                    O4 --> E1
+                    O5 --> E1
+                    O8 --> E2
+                    O4 --> E2
+                    O10 --> E3
+                    O8 --> E3
+                    O10 --> E4
+                    O5 --> E5
+                    O6 --> E5
+                    
+                    O1 --> F
+                    O2 --> F
+                    O3 --> F
+                    O4 --> F
+                    O5 --> F
+                    O6 --> F
+                    O7 --> F
+                    O8 --> F
+                    O9 --> F
+                    O10 --> F
+                    O11 --> F
+                    O12 --> F
+                    O13 --> F
+                    E1 --> F
+                    E2 --> F
+                    E3 --> F
+                    E4 --> F
+                    E5 --> F
+            </div>
+        </div>
+        
+        <!-- Model Comparison -->
+        <div class="section">
+            <h2>Model Performance Comparison</h2>
+            <table class="model-comparison">
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>AUC</th>
+                        <th>Accuracy</th>
+                        <th>Recall</th>
+                        <th>Precision</th>
+                        <th>F1-Score</th>
+                        <th>Training Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Baseline (train.py)</strong></td>
+                        <td>97.7%</td>
+                        <td>93.1%</td>
+                        <td>90.2%</td>
+                        <td>90.5%</td>
+                        <td>90.1%</td>
+                        <td>2 min</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Optimized (train_optimized_fast.py)</strong></td>
+                        <td>97.79%</td>
+                        <td>92.9%</td>
+                        <td>90.2%</td>
+                        <td>90.0%</td>
+                        <td>90.1%</td>
+                        <td>3-4 min</td>
+                    </tr>
+                    <tr style="background: #d4edda;">
+                        <td><strong>Ultra (train_gpu_ultra.py)</strong></td>
+                        <td><strong>98.07%</strong></td>
+                        <td><strong>94.4%</strong></td>
+                        <td><strong>90.1%</strong></td>
+                        <td><strong>93.3%</strong></td>
+                        <td><strong>91.7%</strong></td>
+                        <td><strong>~5 min</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="success">
+                <strong>Ultra model selected:</strong> 98.07% AUC, 94.4% accuracy, catches 90.1% of disease cases.
+            </div>
+        </div>
+        
+        <!-- Training Workflow -->
+        <div class="section">
+            <h2>Training the Model</h2>
+            <div class="mermaid">
+                graph TD
+                    A["📥 Load Data<br/>5,569 Samples"] --> B["🔍 Detect Outliers<br/>Elliptic Envelope"]
+                    B --> C["🧹 Remove Outliers<br/>168 Samples Removed"]
+                    C --> D["📊 Split Data<br/>80% Train / 20% Test"]
+                    D --> E["⚙️ Feature Engineering<br/>Create 6 New Features"]
+                    E --> F["📈 Scale Features<br/>QuantileTransformer"]
+                    F --> G["🧠 Train Base Models"]
+                    G --> G1["XGBoost<br/>800 Estimators"]
+                    G --> G2["Random Forest<br/>800 Estimators"]
+                    G --> G3["Gradient Boosting<br/>800 Estimators"]
+                    G --> G4["Extra Trees<br/>800 Estimators"]
+                    G --> G5["AdaBoost<br/>800 Estimators"]
+                    G1 --> H["🎯 Build Stacking Ensemble"]
+                    G2 --> H
+                    G3 --> H
+                    G4 --> H
+                    G5 --> H
+                    H --> I["📊 5-Fold Cross-Validation"]
+                    I --> J["🔧 Train Meta-Learner<br/>LogisticRegression"]
+                    J --> K["📈 Platt Calibration<br/>5-Fold CV"]
+                    K --> L["✅ Evaluate Model"]
+                    L --> M["🎯 Optimize Threshold"]
+                    M --> N["💾 Save Model<br/>heart_disease_model_ultra.joblib"]
+                    N --> O["✨ Production Ready"]
+            </div>
+        </div>
+        
+        <!-- Prediction Workflow -->
+        <div class="section">
+            <h2>Making a Prediction</h2>
+            <div class="mermaid">
+                graph LR
+                    A["📋 Patient Input<br/>13 Features"] --> B["✔️ Validate Input<br/>Check Ranges"]
+                    B --> C["🧹 Outlier Check<br/>Elliptic Envelope"]
+                    C --> D["⚙️ Engineer Features<br/>Create 6 New Features"]
+                    D --> E["📊 Scale Data<br/>QuantileTransformer"]
+                    E --> F["🧠 Base Model 1<br/>XGBoost"]
+                    E --> G["🧠 Base Model 2<br/>Random Forest"]
+                    E --> H["🧠 Base Model 3<br/>Gradient Boosting"]
+                    E --> I["🧠 Base Model 4<br/>Extra Trees"]
+                    E --> J["🧠 Base Model 5<br/>AdaBoost"]
+                    F --> K["🎯 Meta-Learner<br/>Combine Predictions"]
+                    G --> K
+                    H --> K
+                    I --> K
+                    J --> K
+                    K --> L["📈 Calibrate<br/>Platt Sigmoid"]
+                    L --> M["🎯 Apply Threshold<br/>0.445"]
+                    M --> N["✅ Final Prediction<br/>Disease / Healthy"]
+                    N --> O["💊 Risk Level<br/>Low/Medium/High"]
+                    O --> P["📱 Output<br/>Probability + Recommendations"]
+            </div>
+        </div>
+        
+        <!-- Backend API Flow -->
+        <div class="section">
+            <h2>API Request Handling</h2>
+            <div class="mermaid">
+                graph TB
+                    subgraph Client["Client Request"]
+                        A["POST /api/v1/predict<br/>or<br/>POST /api/v2/analyze-complete-report"]
+                    end
+                    
+                    subgraph API["FastAPI Server"]
+                        B["Receive Request"]
+                        C["Validate Input<br/>(Pydantic)"]
+                        D["Route to Service"]
+                    end
+                    
+                    subgraph Services["Service Layer"]
+                        E["OCR Service<br/>(if report)"]
+                        F["Advanced OCR<br/>(format detection)"]
+                        G["ML Service<br/>(prediction)"]
+                        H["Image Processing<br/>(if images)"]
+                        I["Fusion Model<br/>(multi-source)"]
+                    end
+                    
+                    subgraph Processing["Processing Pipeline"]
+                        J["Load Model"]
+                        K["Load Scaler"]
+                        L["Preprocess Data"]
+                        M["Feature Engineering"]
+                        N["Ensemble Inference"]
+                    end
+                    
+                    subgraph Output["Response Generation"]
+                        O["SHAP Explanation"]
+                        P["Risk Assessment"]
+                        Q["Recommendations<br/>(Doctors/Hospitals)"]
+                        R["Format Response"]
+                    end
+                    
+                    A --> B
+                    B --> C
+                    C --> D
+                    D --> E
+                    D --> G
+                    D --> H
+                    E --> F
+                    F --> L
+                    G --> J
+                    G --> K
+                    H --> M
+                    J --> L
+                    K --> L
+                    L --> M
+                    M --> N
+                    N --> I
+                    I --> O
+                    I --> P
+                    I --> Q
+                    O --> R
+                    P --> R
+                    Q --> R
+                    R --> S["Return JSON Response"]
+            </div>
+        </div>
+        
+        <!-- Feature Importance -->
+        <div class="section">
+            <h2>Feature Importance</h2>
+            <h3>Top 10 Factors for Prediction</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>1. Heart Rate to Blood Pressure Ratio (13.68%)</h4>
+                    <p>How efficiently your heart works relative to blood pressure</p>
+                </div>
+                <div class="feature-card">
+                    <h4>2. ST Depression (12.23%)</h4>
+                    <p>Key ECG finding indicating heart stress</p>
+                </div>
+                <div class="feature-card">
+                    <h4>3. ST Depression Transformed (11.67%)</h4>
+                    <p>Mathematical transformation of ST depression for better predictions</p>
+                </div>
+                <div class="feature-card">
+                    <h4>4. Thalassemia (10.63%)</h4>
+                    <p>Blood disorder affecting oxygen transport</p>
+                </div>
+                <div class="feature-card">
+                    <h4>5. Blood Pressure × Cholesterol (7.91%)</h4>
+                    <p>Combined effect of two major cardiovascular risk factors</p>
+                </div>
+                <div class="feature-card">
+                    <h4>6. ST Depression × Heart Rate (6.65%)</h4>
+                    <p>How heart stress changes with exercise</p>
+                </div>
+                <div class="feature-card">
+                    <h4>7. Major Vessels (5.85%)</h4>
+                    <p>Number of major blood vessels with significant blockage</p>
+                </div>
+                <div class="feature-card">
+                    <h4>8. Max Heart Rate (4.60%)</h4>
+                    <p>Highest heart rate achieved during exercise testing</p>
+                </div>
+                <div class="feature-card">
+                    <h4>9. Exercise-Induced Chest Pain (4.43%)</h4>
+                    <p>Whether chest pain occurs during physical activity</p>
+                </div>
+                <div class="feature-card">
+                    <h4>10. Age (4.34%)</h4>
+                    <p>Patient age - a basic but important risk factor</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Model Details -->
+        <div class="section">
+            <h2>Model Configuration</h2>
+            
+            <h3>Base Models Configuration</h3>
+            <div class="tabs">
+                <button class="tab-button active" onclick="switchTab(event, 'xgboost')">XGBoost</button>
+                <button class="tab-button" onclick="switchTab(event, 'rf')">Random Forest</button>
+                <button class="tab-button" onclick="switchTab(event, 'gb')">Gradient Boosting</button>
+                <button class="tab-button" onclick="switchTab(event, 'et')">Extra Trees</button>
+                <button class="tab-button" onclick="switchTab(event, 'ada')">AdaBoost</button>
+                <button class="tab-button" onclick="switchTab(event, 'meta')">Meta-Learner</button>
+            </div>
+            
+            <div id="xgboost" class="tab-content active">
+                <h4>XGBoost (97.85% AUC)</h4>
+                <div class="code-block">
+n_estimators: 800
+max_depth: 8
+learning_rate: 0.015
+subsample: 0.93
+colsample_bytree: 0.93
+min_child_weight: 1
+gamma: 0.005
+reg_alpha: 0.3
+reg_lambda: 1.5
+scale_pos_weight: 1.7
+tree_method: hist
+device: cuda (RTX 3050)
+                </div>
+                <p>Gradient boosting with GPU acceleration</p>
+            </div>
+            
+            <div id="rf" class="tab-content">
+                <h4>Random Forest (97.82% AUC)</h4>
+                <div class="code-block">
+n_estimators: 800
+max_depth: 20
+min_samples_split: 4
+min_samples_leaf: 1
+max_features: sqrt
+class_weight: balanced_subsample
+bootstrap: True
+oob_score: True
+                </div>
+                <p>Out-of-bag scoring: 93.73% | Bagging ensemble</p>
+            </div>
+            
+            <div id="gb" class="tab-content">
+                <h4>Gradient Boosting (98.06% AUC)</h4>
+                <div class="code-block">
+n_estimators: 800
+learning_rate: 0.015
+max_depth: 8
+min_samples_split: 4
+min_samples_leaf: 1
+subsample: 0.93
+max_features: sqrt
+validation_fraction: 0.1
+n_iter_no_change: 150
+                </div>
+                <p>Sequential boosting with early stopping</p>
+            </div>
+            
+            <div id="et" class="tab-content">
+                <h4>Extra Trees (97.85% AUC)</h4>
+                <div class="code-block">
+n_estimators: 800
+max_depth: 20
+min_samples_split: 4
+min_samples_leaf: 1
+max_features: sqrt
+class_weight: balanced_subsample
+bootstrap: True
+                </div>
+                <p>Extremely randomized trees for diversity</p>
+            </div>
+            
+            <div id="ada" class="tab-content">
+                <h4>AdaBoost (97.01% AUC)</h4>
+                <div class="code-block">
+n_estimators: 800
+learning_rate: 0.015
+random_state: 42
+                </div>
+                <p>Adaptive boosting focusing on hard examples</p>
+            </div>
+            
+            <div id="meta" class="tab-content">
+                <h4>Meta-Learner (98.07% AUC)</h4>
+                <div class="code-block">
+Type: LogisticRegression
+max_iter: 1000
+C: 0.1 (Regularization)
+random_state: 42
+
+Stacking: 5-Fold Stratified CV
+Calibration: Platt Sigmoid (5-Fold)
+                </div>
+                <p>Learns optimal weights from 5 base models</p>
+            </div>
+        </div>
+        
+        <!-- Performance Metrics -->
+        <div class="section">
+            <h2>Performance Metrics</h2>
+            
+            <h3>Confusion Matrix</h3>
+            <div class="mermaid">
+                graph TB
+                    A["Test Set: 1,081 Samples"] --> B["Predicted Healthy: 709"]
+                    A --> C["Predicted Disease: 372"]
+                    B --> D["True Negatives: 685<br/>Correct Healthy"]
+                    B --> E["False Positives: 24<br/>False Alarm"]
+                    C --> F["False Negatives: 37<br/>Missed Disease"]
+                    C --> G["True Positives: 335<br/>Correct Disease"]
+                    D --> H["Specificity: 96.61%"]
+                    E --> I["False Alarm Rate: 3.4%"]
+                    F --> J["Missed Rate: 9.9%"]
+                    G --> K["Sensitivity: 90.05%"]
+            </div>
+            
+            <h3>Key Metrics</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>AUC</h4>
+                    <p><strong>98.07%</strong></p>
+                    <p>Excellent discrimination between disease and healthy</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Accuracy</h4>
+                    <p><strong>94.4%</strong></p>
+                    <p>Overall correctness of predictions</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Recall</h4>
+                    <p><strong>90.1%</strong></p>
+                    <p>Catches 335 out of 372 disease cases</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Precision</h4>
+                    <p><strong>93.3%</strong></p>
+                    <p>Only 24 false alarms out of 709 healthy</p>
+                </div>
+                <div class="feature-card">
+                    <h4>F1-Score</h4>
+                    <p><strong>91.7%</strong></p>
+                    <p>Balanced precision and recall</p>
+                </div>
+                <div class="feature-card">
+                    <h4>MCC</h4>
+                    <p><strong>0.8743</strong></p>
+                    <p>Strong agreement between prediction and reality</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Cohen's Kappa</h4>
+                    <p><strong>0.8739</strong></p>
+                    <p>Excellent inter-rater agreement</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Specificity</h4>
+                    <p><strong>96.61%</strong></p>
+                    <p>Correctly identifies 96.6% of healthy patients</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Technology Stack -->
+        <div class="section">
+            <h2>Technology Stack</h2>
+            
+            <h3>ML & Data Processing</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>scikit-learn</h4>
+                    <p>Machine learning algorithms, ensemble methods, preprocessing</p>
+                </div>
+                <div class="feature-card">
+                    <h4>XGBoost</h4>
+                    <p>Gradient boosting with GPU acceleration (CUDA)</p>
+                </div>
+                <div class="feature-card">
+                    <h4>NumPy & Pandas</h4>
+                    <p>Numerical computing and data manipulation</p>
+                </div>
+                <div class="feature-card">
+                    <h4>joblib</h4>
+                    <p>Model serialization and persistence</p>
+                </div>
+            </div>
+            
+            <h3>Backend & API</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>FastAPI</h4>
+                    <p>Modern Python web framework for building APIs</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Uvicorn</h4>
+                    <p>ASGI server for running FastAPI applications</p>
+                </div>
+                <div class="feature-card">
+                    <h4>PostgreSQL</h4>
+                    <p>Relational database for storing patient data</p>
+                </div>
+                <div class="feature-card">
+                    <h4>SQLAlchemy</h4>
+                    <p>ORM for database operations</p>
+                </div>
+            </div>
+            
+            <h3>Additional Services</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Tesseract OCR</h4>
+                    <p>Optical character recognition for medical reports</p>
+                </div>
+                <div class="feature-card">
+                    <h4>OpenAI API</h4>
+                    <p>Natural language processing for explanations</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Google Maps API</h4>
+                    <p>Location services for doctor recommendations</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Docker</h4>
+                    <p>Containerization for deployment</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Deployment Architecture -->
+        <div class="section">
+            <h2>Deployment Architecture</h2>
+            <div class="mermaid">
+                graph TB
+                    subgraph Client["Client Layer"]
+                        A["📱 Android App"]
+                        B["🌐 Web Browser"]
+                    end
+                    
+                    subgraph CDN["CDN & Load Balancing"]
+                        C["Nginx<br/>Reverse Proxy"]
+                    end
+                    
+                    subgraph Docker["Docker Containers"]
+                        D["FastAPI<br/>Container"]
+                        E["PostgreSQL<br/>Container"]
+                        F["Redis<br/>Cache"]
+                    end
+                    
+                    subgraph Cloud["Cloud Infrastructure"]
+                        G["AWS EC2<br/>Compute"]
+                        H["AWS RDS<br/>Database"]
+                        I["AWS S3<br/>Storage"]
+                    end
+                    
+                    subgraph Monitoring["Monitoring & Logging"]
+                        J["CloudWatch"]
+                        K["Application Logs"]
+                    end
+                    
+                    A --> C
+                    B --> C
+                    C --> D
+                    D --> E
+                    D --> F
+                    D --> G
+                    E --> H
+                    F --> I
+                    D --> J
+                    D --> K
+            </div>
+        </div>
+        
+        <!-- Project Timeline -->
+        <div class="section">
+            <h2>Project Timeline (12 Weeks)</h2>
+            
+            <h3>Project Completion Status</h3>
+            <table class="model-comparison">
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Status</th>
+                        <th>Completion</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #d4edda;">
+                        <td><strong>ML Model</strong></td>
+                        <td>Complete</td>
+                        <td>100%</td>
+                        <td>98.07% AUC, 5 base models + meta-learner</td>
+                    </tr>
+                    <tr style="background: #d4edda;">
+                        <td><strong>Backend API</strong></td>
+                        <td>Complete</td>
+                        <td>95%</td>
+                        <td>15+ endpoints, V1 & V2 ready</td>
+                    </tr>
+                    <tr style="background: #d4edda;">
+                        <td><strong>OCR Service</strong></td>
+                        <td>Complete</td>
+                        <td>95%</td>
+                        <td>Tesseract + format-specific parsers</td>
+                    </tr>
+                    <tr style="background: #d4edda;">
+                        <td><strong>Image Processing</strong></td>
+                        <td>Complete</td>
+                        <td>100%</td>
+                        <td>ECG, X-ray, angiography analysis</td>
+                    </tr>
+                    <tr style="background: #d4edda;">
+                        <td><strong>Fusion Model</strong></td>
+                        <td>Complete</td>
+                        <td>100%</td>
+                        <td>Multi-source prediction (60% tabular, 40% imaging)</td>
+                    </tr>
+                    <tr style="background: #d4edda;">
+                        <td><strong>SHAP Explanations</strong></td>
+                        <td>Complete</td>
+                        <td>100%</td>
+                        <td>Feature importance & clinical interpretations</td>
+                    </tr>
+                    <tr style="background: #d4edda;">
+                        <td><strong>Documentation</strong></td>
+                        <td>Complete</td>
+                        <td>100%</td>
+                        <td>30+ comprehensive guides</td>
+                    </tr>
+                    <tr style="background: #fff3cd;">
+                        <td><strong>Database</strong></td>
+                        <td>Planned</td>
+                        <td>0%</td>
+                        <td>PostgreSQL setup pending</td>
+                    </tr>
+                    <tr style="background: #fff3cd;">
+                        <td><strong>Authentication</strong></td>
+                        <td>Planned</td>
+                        <td>0%</td>
+                        <td>JWT implementation pending</td>
+                    </tr>
+                    <tr style="background: #fff3cd;">
+                        <td><strong>Android App</strong></td>
+                        <td>Planned</td>
+                        <td>0%</td>
+                        <td>TensorFlow Lite integration planned</td>
+                    </tr>
+                    <tr style="background: #fff3cd;">
+                        <td><strong>Deployment</strong></td>
+                        <td>Planned</td>
+                        <td>0%</td>
+                        <td>Docker & AWS setup pending</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="mermaid">
+                gantt
+                    title Cardiac Health AI Platform - 12 Week Development Timeline
+                    dateFormat YYYY-MM-DD
+                    
+                    section Phase 1: ML & Backend
+                    Data Collection & Preprocessing :done, ml1, 2026-01-01, 30d
+                    Model Training & Optimization :done, ml2, 2026-02-01, 30d
+                    Ultra Model Development :done, ml3, 2026-03-01, 20d
+                    Model Testing & Validation :done, ml4, 2026-03-21, 10d
+                    Backend API Development :done, be1, 2026-02-15, 25d
+                    Service Integration :done, be2, 2026-03-10, 20d
+                    Backend Testing :active, be3, 2026-04-01, 15d
+                    
+                    section Phase 2: Android App
+                    UI/UX Design & Prototyping :crit, and1, 2026-04-15, 20d
+                    Android Setup & Architecture :crit, and2, 2026-04-20, 15d
+                    Core Features Development :crit, and3, 2026-05-05, 30d
+                    API Integration :crit, and4, 2026-06-04, 20d
+                    UI Polish & Optimization :crit, and5, 2026-06-24, 15d
+                    
+                    section Phase 3: Database & Security
+                    Database Schema Design :db1, 2026-03-15, 15d
+                    Database Implementation :db2, 2026-03-30, 20d
+                    Security & Authentication :db3, 2026-04-20, 20d
+                    Data Encryption Setup :db4, 2026-05-10, 15d
+                    HIPAA Compliance :db5, 2026-05-25, 20d
+                    
+                    section Phase 4: Testing & QA
+                    Unit Testing :qa1, 2026-04-01, 20d
+                    Integration Testing :qa2, 2026-04-21, 20d
+                    Performance Testing :qa3, 2026-05-11, 15d
+                    Security Testing :qa4, 2026-05-26, 15d
+                    User Acceptance Testing :qa5, 2026-06-10, 20d
+                    
+                    section Phase 5: Deployment
+                    Docker Containerization :dep1, 2026-04-20, 15d
+                    Cloud Infrastructure Setup :dep2, 2026-05-05, 20d
+                    CI/CD Pipeline :dep3, 2026-05-25, 15d
+                    Staging Deployment :dep4, 2026-06-09, 10d
+                    Production Deployment :crit, dep5, 2026-06-19, 5d
+                    
+                    section Phase 6: Launch & Support
+                    Beta Testing :crit, launch1, 2026-06-24, 15d
+                    Bug Fixes & Optimization :crit, launch2, 2026-07-09, 10d
+                    Documentation & Training :launch3, 2026-07-19, 10d
+                    Official Launch :crit, launch4, 2026-07-29, 1d
+                    Post-Launch Support :launch5, 2026-07-30, 30d
+            </div>
+            
+            <h3>Phase Breakdown</h3>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Phase 1: ML & Backend</h4>
+                    <p><strong>Status:</strong> 100% Complete</p>
+                    <ul style="margin-left: 15px; margin-top: 10px; font-size: 0.9em;">
+                        <li>Data collection & preprocessing</li>
+                        <li>Model training & optimization</li>
+                        <li>Ultra model (98.07% AUC)</li>
+                        <li>Backend API development</li>
+                        <li>Service integration</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>Phase 2: OCR & Reports</h4>
+                    <p><strong>Status:</strong> 95% Complete</p>
+                    <ul style="margin-left: 15px; margin-top: 10px; font-size: 0.9em;">
+                        <li>OCR service (Tesseract)</li>
+                        <li>Image preprocessing</li>
+                        <li>Format-specific parsers</li>
+                        <li>Confidence scoring</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>Phase 3: Backend API</h4>
+                    <p><strong>Status:</strong> 95% Complete</p>
+                    <ul style="margin-left: 15px; margin-top: 10px; font-size: 0.9em;">
+                        <li>FastAPI application</li>
+                        <li>15+ endpoints (V1 & V2)</li>
+                        <li>Report processing</li>
+                        <li>ML integration</li>
+                        <li>Explanation service</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>Phase 4: Advanced Features</h4>
+                    <p><strong>Status:</strong> 50% Complete</p>
+                    <ul style="margin-left: 15px; margin-top: 10px; font-size: 0.9em;">
+                        <li>Indian-specific features</li>
+                        <li>Consent management</li>
+                        <li>SHAP explanations</li>
+                        <li>Image processing</li>
+                        <li>Fusion model</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>Phase 5: Database & Auth</h4>
+                    <p><strong>Status:</strong> 0% (Planned)</p>
+                    <ul style="margin-left: 15px; margin-top: 10px; font-size: 0.9em;">
+                        <li>PostgreSQL setup</li>
+                        <li>User authentication (JWT)</li>
+                        <li>Prediction history</li>
+                        <li>Data encryption</li>
+                        <li>DPDP compliance</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>Phase 6: Deployment & App</h4>
+                    <p><strong>Status:</strong> 0% (Planned)</p>
+                    <ul style="margin-left: 15px; margin-top: 10px; font-size: 0.9em;">
+                        <li>Docker containerization</li>
+                        <li>AWS EC2 deployment</li>
+                        <li>CI/CD pipeline</li>
+                        <li>Android app</li>
+                        <li>TensorFlow Lite</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>Weekly Breakdown</h3>
+            <table class="model-comparison">
+                <thead>
+                    <tr>
+                        <th>Week</th>
+                        <th>Phase</th>
+                        <th>Key Activities</th>
+                        <th>Deliverables</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #d4edda;">
+                        <td><strong>1-2</strong></td>
+                        <td>ML Model</td>
+                        <td>Data collection, preprocessing, initial training</td>
+                        <td>Baseline model (97.7% AUC)</td>
+                        <td>✅ Done</td>
+                    </tr>
+                    <tr style="background: #d4edda;">
+                        <td><strong>3-4</strong></td>
+                        <td>ML Model</td>
+                        <td>Model optimization, ultra model development</td>
+                        <td>Ultra model (98.07% AUC)</td>
+                        <td>✅ Done</td>
+                    </tr>
+                    <tr style="background: #d4edda;">
+                        <td><strong>2-3</strong></td>
+                        <td>Backend</td>
+                        <td>API development, service integration</td>
+                        <td>FastAPI server, services</td>
+                        <td>✅ Done</td>
+                    </tr>
+                    <tr style="background: #fff3cd;">
+                        <td><strong>4</strong></td>
+                        <td>Backend & DB</td>
+                        <td>Backend testing, database schema design</td>
+                        <td>Tested API, DB schema</td>
+                        <td>⏳ In Progress</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5</strong></td>
+                        <td>Android & DB</td>
+                        <td>UI/UX design, database implementation</td>
+                        <td>Design mockups, DB setup</td>
+                        <td>⏳ Planned</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6</strong></td>
+                        <td>Android & Security</td>
+                        <td>Core development, security setup</td>
+                        <td>Core features, auth system</td>
+                        <td>⏳ Planned</td>
+                    </tr>
+                    <tr>
+                        <td><strong>7</strong></td>
+                        <td>Android & Testing</td>
+                        <td>API integration, unit testing</td>
+                        <td>Integrated app, test suite</td>
+                        <td>⏳ Planned</td>
+                    </tr>
+                    <tr>
+                        <td><strong>8</strong></td>
+                        <td>Testing & Deployment</td>
+                        <td>Integration testing, Docker setup</td>
+                        <td>Test reports, Docker image</td>
+                        <td>⏳ Planned</td>
+                    </tr>
+                    <tr>
+                        <td><strong>9</strong></td>
+                        <td>Testing & Deployment</td>
+                        <td>Performance testing, cloud setup</td>
+                        <td>Performance report, cloud config</td>
+                        <td>⏳ Planned</td>
+                    </tr>
+                    <tr>
+                        <td><strong>10</strong></td>
+                        <td>Deployment</td>
+                        <td>CI/CD pipeline, staging deployment</td>
+                        <td>Pipeline, staging environment</td>
+                        <td>⏳ Planned</td>
+                    </tr>
+                    <tr>
+                        <td><strong>11</strong></td>
+                        <td>Launch</td>
+                        <td>Production deployment, beta testing</td>
+                        <td>Live system, beta feedback</td>
+                        <td>⏳ Planned</td>
+                    </tr>
+                    <tr>
+                        <td><strong>12</strong></td>
+                        <td>Launch & Support</td>
+                        <td>Bug fixes, documentation, official launch</td>
+                        <td>Stable system, documentation</td>
+                        <td>⏳ Planned</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Key Milestones</h3>
+            <div class="highlight">
+                <strong>Week 4:</strong> ML Model & Backend Complete
+                <ul style="margin-left: 20px; margin-top: 10px; font-size: 0.9em;">
+                    <li>Ultra model trained (98.07% AUC)</li>
+                    <li>Backend API ready</li>
+                    <li>All services integrated</li>
+                </ul>
+            </div>
+            
+            <div class="highlight">
+                <strong>Week 7:</strong> Android App Core Features
+                <ul style="margin-left: 20px; margin-top: 10px; font-size: 0.9em;">
+                    <li>UI/UX complete</li>
+                    <li>Core features working</li>
+                    <li>API integration done</li>
+                </ul>
+            </div>
+            
+            <div class="highlight">
+                <strong>Week 9:</strong> Testing & Security Complete
+                <ul style="margin-left: 20px; margin-top: 10px; font-size: 0.9em;">
+                    <li>All tests passing</li>
+                    <li>Security audit passed</li>
+                    <li>DPDP compliant</li>
+                </ul>
+            </div>
+            
+            <div class="success">
+                <strong>Week 11:</strong> Production Launch
+                <ul style="margin-left: 20px; margin-top: 10px; font-size: 0.9em;">
+                    <li>System live in production</li>
+                    <li>Beta users testing</li>
+                    <li>Monitoring active</li>
+                </ul>
+            </div>
+            
+            <h3>Resource Allocation</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>ML/Data Team (2)</h4>
+                    <ul style="margin-left: 15px; margin-top: 10px; font-size: 0.9em;">
+                        <li>Model development</li>
+                        <li>Data pipeline</li>
+                        <li>Performance optimization</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>Backend Team (2)</h4>
+                    <ul style="margin-left: 15px; margin-top: 10px; font-size: 0.9em;">
+                        <li>API development</li>
+                        <li>Database design</li>
+                        <li>Security implementation</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>Android Team (2)</h4>
+                    <ul style="margin-left: 15px; margin-top: 10px; font-size: 0.9em;">
+                        <li>UI/UX development</li>
+                        <li>App features</li>
+                        <li>API integration</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>QA/DevOps Team (2)</h4>
+                    <ul style="margin-left: 15px; margin-top: 10px; font-size: 0.9em;">
+                        <li>Testing & QA</li>
+                        <li>Deployment</li>
+                        <li>Monitoring</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>Risk Management</h3>
+            <table class="model-comparison">
+                <thead>
+                    <tr>
+                        <th>Risk</th>
+                        <th>Impact</th>
+                        <th>Probability</th>
+                        <th>Mitigation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>API Integration Delays</td>
+                        <td>High</td>
+                        <td>Medium</td>
+                        <td>Early integration testing, mock APIs</td>
+                    </tr>
+                    <tr>
+                        <td>Database Performance</td>
+                        <td>High</td>
+                        <td>Low</td>
+                        <td>Load testing, optimization</td>
+                    </tr>
+                    <tr>
+                        <td>Security Vulnerabilities</td>
+                        <td>Critical</td>
+                        <td>Low</td>
+                        <td>Security audit, penetration testing</td>
+                    </tr>
+                    <tr>
+                        <td>Android Compatibility</td>
+                        <td>Medium</td>
+                        <td>Medium</td>
+                        <td>Multi-device testing, CI/CD</td>
+                    </tr>
+                    <tr>
+                        <td>Deployment Issues</td>
+                        <td>High</td>
+                        <td>Low</td>
+                        <td>Staging environment, rollback plan</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Success Criteria</h3>
+            <div class="success">
+                <ul style="margin-left: 20px; font-size: 0.95em;">
+                    <li>Model AUC ≥ 98% ✓ (98.07%)</li>
+                    <li>API response time < 500ms</li>
+                    <li>OCR accuracy ≥ 90%</li>
+                    <li>99.5% system uptime</li>
+                    <li>DPDP Act compliance</li>
+                    <li>Zero critical security issues</li>
+                    <li>Test coverage > 90%</li>
+                    <li>Documentation complete</li>
+                    <li>10-15 clinic partnerships</li>
+                    <li>10,000+ validated Indian samples</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Key Features -->
+        <div class="section">
+            <h2>Key Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>High Accuracy</h4>
+                    <p>98.07% AUC with 94.4% accuracy</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Ensemble Model</h4>
+                    <p>5 base models combined with a meta-learner</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Feature Engineering</h4>
+                    <p>6 engineered features capturing cardiovascular relationships</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Mobile App</h4>
+                    <p>Android app for health assessment on the go</p>
+                </div>
+                <div class="feature-card">
+                    <h4>OCR Integration</h4>
+                    <p>Automatically extract data from medical reports</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Smart Recommendations</h4>
+                    <p>Personalized health recommendations based on risk level</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Doctor Locator</h4>
+                    <p>Find nearby cardiologists using Google Maps</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Secure & DPDP Compliant</h4>
+                    <p>Enterprise-grade security with India's data protection law compliance</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Real-time Monitoring</h4>
+                    <p>Track health metrics and predictions over time</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Multi-platform</h4>
+                    <p>Access via web, mobile, or API</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Backend Services -->
+        <div class="section">
+            <h2>Backend Services</h2>
+            <p>11 specialized services handling predictions, OCR, image analysis, and recommendations:</p>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>OCR Service</h4>
+                    <p>Extracts text from medical reports using Tesseract with image preprocessing</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Advanced OCR</h4>
+                    <p>Format-specific parsing for SRL, Thyrocare, Metropolis, Dr. Lal PathLabs</p>
+                </div>
+                <div class="feature-card">
+                    <h4>ML Prediction</h4>
+                    <p>Ensemble model with 5 base models and meta-learner (98.07% AUC)</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Image Processing</h4>
+                    <p>Analyzes ECG, X-ray, and angiography images for abnormalities</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Fusion Model</h4>
+                    <p>Combines tabular data and imaging features (60% tabular, 40% imaging)</p>
+                </div>
+                <div class="feature-card">
+                    <h4>SHAP Explanations</h4>
+                    <p>Provides interpretable feature importance and clinical explanations</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Recommendation Service</h4>
+                    <p>Finds verified doctors via Practo API and Google Maps</p>
+                </div>
+                <div class="feature-card">
+                    <h4>LLM Parser</h4>
+                    <p>Parses medical reports using language models for structured extraction</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Lab Mapper</h4>
+                    <p>Maps lab values to model features and identifies risk factors</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Consent Management</h4>
+                    <p>DPDP Act compliant consent tracking and data privacy</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Report Analyzer</h4>
+                    <p>Analyzes medical reports and extracts key clinical findings</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- API Endpoints -->
+        <div class="section">
+            <h2>API Endpoints</h2>
+            <p>15+ endpoints across V1 (stable) and V2 (advanced) versions:</p>
+            
+            <h3>V1 Endpoints (Stable)</h3>
+            <div class="code-block">
+GET  /                          - Root endpoint
+GET  /health                    - Health check
+POST /api/v1/predict            - Manual input prediction
+POST /api/v1/upload-report      - Upload & process report
+POST /api/v1/predict-from-report - Report + prediction
+POST /api/v1/find-doctors       - Find doctors by location
+GET  /api/v1/cardiologists      - Get nearby cardiologists
+GET  /api/v1/hospitals          - Get nearby hospitals
+            </div>
+            
+            <h3>V2 Endpoints (Advanced)</h3>
+            <div class="code-block">
+POST /api/v2/analyze-complete-report
+  - Input: blood_report + optional (ecg_image, xray_image, angio_image)
+  - Output: Fusion prediction + SHAP explanations + Recommendations
+
+POST /api/v2/process-cardiac-image
+  - Input: cardiac_image + image_type (ecg/xray/angiography)
+  - Output: Image analysis + Abnormality scores
+
+POST /api/v2/explain-prediction
+  - Input: Patient data
+  - Output: SHAP explanation + Clinical summary
+
+POST /api/v2/parse-report-with-llm
+  - Input: Medical report file
+  - Output: Structured data + Validation + Risk factors
+
+POST /api/v2/map-lab-values
+  - Input: Lab data + patient info
+  - Output: Model features + Risk factors
+
+POST /api/v2/complete-analysis-pipeline
+  - Input: All available data
+  - Output: Complete 8-component analysis
+            </div>
+        </div>
+        
+            
+            <h3>Installation</h3>
+            <div class="code-block">
+# Clone repository
+git clone https://github.com/yourusername/cardiac-health-ai.git
+cd cardiac-health-ai
+
+# Install dependencies
+pip install -r ml_model/requirements.txt
+pip install -r backend/requirements.txt
+
+# Setup environment
+cp backend/.env.example backend/.env
+# Edit .env with your API keys
+            </div>
+            
+            <h3>Training the Model</h3>
+            <div class="code-block">
+# Train ultra-advanced model
+cd ml_model
+python train_gpu_ultra.py
+
+# Or use optimized version
+python train_gpu_optimized.py
+            </div>
+            
+            <h3>Running the Backend</h3>
+            <div class="code-block">
+# Start FastAPI server
+cd backend
+python -m uvicorn main:app --reload
+
+# API will be available at http://localhost:8000
+# Docs at http://localhost:8000/docs
+            </div>
+            
+            <h3>Making Predictions</h3>
+            <div class="code-block">
+from ml_model.predict import HeartDiseasePredictor
+
+predictor = HeartDiseasePredictor()
+result = predictor.predict({
+    "age": 55,
+    "sex": 1,
+    "chest_pain_type": 2,
+    "resting_bp": 140,
+    "cholesterol": 250,
+    "fasting_blood_sugar": 1,
+    "resting_ecg": 1,
+    "max_heart_rate": 150,
+    "exercise_induced_angina": 0,
+    "st_depression": 1.5,
+    "st_slope": 1,
+    "num_major_vessels": 1,
+    "thalassemia": 2
+})
+
+print(f"Risk Level: {result['risk_level']}")
+print(f"Probability: {result['probability']:.2%}")
+            </div>
+        </div>
+        
+        <!-- Success Metrics -->
+        <div class="section">
+            <h2>Success Metrics & Achievements</h2>
+            <div class="success">
+                <h3>Model Performance</h3>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>✓ AUC: 98.07%</li>
+                    <li>✓ Accuracy: 94.4%</li>
+                    <li>✓ Recall: 90.1%</li>
+                    <li>✓ Precision: 93.3%</li>
+                    <li>✓ MCC: 0.8743</li>
+                    <li>✓ Kappa: 0.8739</li>
+                </ul>
+            </div>
+            
+            <div class="success">
+                <h3>Technical Achievements</h3>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>✓ Stacking ensemble with 5 base models</li>
+                    <li>✓ Feature engineering with 6 new features</li>
+                    <li>✓ Outlier detection and removal</li>
+                    <li>✓ Advanced scaling (QuantileTransformer)</li>
+                    <li>✓ Platt calibration for reliable probabilities</li>
+                    <li>✓ GPU acceleration (RTX 3050 CUDA)</li>
+                    <li>✓ Production-ready code</li>
+                </ul>
+            </div>
+            
+            <div class="success">
+                <h3>Project Completion</h3>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>✓ ML Model: 100%</li>
+                    <li>✓ Backend API: 95%</li>
+                    <li>✓ OCR Service: 100%</li>
+                    <li>✓ Documentation: 100%</li>
+                    <li>⏳ Android App: 0%</li>
+                    <li>⏳ Database: 0%</li>
+                    <li>⏳ Deployment: 0%</li>
+                </ul>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Cardiac Health AI Platform | ML-based heart disease detection</p>
+            <p>© 2026 | All Rights Reserved</p>
+            <p>Last Updated: April 6, 2026 | Model: Ultra (98.07% AUC)</p>
+        </footer>
+    </div>
+    
+    <script>
+        function switchTab(evt, tabName) {
+            var i, tabcontent, tabbuttons;
+            
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            tabbuttons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].classList.remove("active");
+            }
+            
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+        
+        // Initialize Mermaid
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+        mermaid.contentLoaded();
+    </script>
+</body>
+</html>

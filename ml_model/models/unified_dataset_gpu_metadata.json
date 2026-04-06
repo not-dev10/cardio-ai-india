@@ -1,0 +1,83 @@
+{
+  "model_type": "XGBoost (GPU-Accelerated)",
+  "gpu_enabled": false,
+  "training_samples": 4322,
+  "test_samples": 1081,
+  "features": [
+    "age",
+    "sex",
+    "cholesterol",
+    "glucose",
+    "hemoglobin",
+    "creatinine",
+    "bp_systolic",
+    "bp_diastolic",
+    "ldl",
+    "hdl",
+    "triglycerides"
+  ],
+  "preprocessing": "QuantileTransformer",
+  "metrics": {
+    "auc": 0.9899745007556603,
+    "accuracy": 0.9685476410730804,
+    "precision": 0.9614660940129731,
+    "recall": 0.9685476410730804,
+    "f1": 0.9648605280317394,
+    "mcc": 0.2854545579381447
+  },
+  "dataset_source": "unified_dataset (UCI + NHANES + Synthetic Reports)",
+  "feature_importance": [
+    {
+      "feature": "hemoglobin",
+      "importance": 0.31848812103271484
+    },
+    {
+      "feature": "cholesterol",
+      "importance": 0.2810433804988861
+    },
+    {
+      "feature": "glucose",
+      "importance": 0.2203717827796936
+    },
+    {
+      "feature": "creatinine",
+      "importance": 0.14112046360969543
+    },
+    {
+      "feature": "sex",
+      "importance": 0.023477828130126
+    },
+    {
+      "feature": "age",
+      "importance": 0.015498441644012928
+    },
+    {
+      "feature": "bp_systolic",
+      "importance": 0.0
+    },
+    {
+      "feature": "bp_diastolic",
+      "importance": 0.0
+    },
+    {
+      "feature": "ldl",
+      "importance": 0.0
+    },
+    {
+      "feature": "hdl",
+      "importance": 0.0
+    },
+    {
+      "feature": "triglycerides",
+      "importance": 0.0
+    }
+  ],
+  "hyperparameters": {
+    "n_estimators": 1000,
+    "max_depth": 8,
+    "learning_rate": 0.05,
+    "subsample": 0.85,
+    "colsample_bytree": 0.85,
+    "tree_method": "hist"
+  }
+}

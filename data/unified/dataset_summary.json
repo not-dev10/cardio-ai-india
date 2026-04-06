@@ -1,0 +1,33 @@
+{
+  "total_samples": 5403,
+  "sources": {
+    "blood_tests": 5303,
+    "synthetic_reports": 100
+  },
+  "features": [
+    "age",
+    "sex",
+    "cp",
+    "trestbps",
+    "chol",
+    "fbs",
+    "restecg",
+    "thalach",
+    "exang",
+    "oldpeak",
+    "slope",
+    "ca",
+    "thal",
+    "target",
+    "cholesterol",
+    "ldl",
+    "hdl",
+    "triglycerides",
+    "glucose",
+    "blood_pressure_systolic",
+    "blood_pressure_diastolic",
+    "hemoglobin",
+    "creatinine",
+    "heart_disease"
+  ]
+}

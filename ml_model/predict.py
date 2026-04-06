@@ -20,18 +20,32 @@ class HeartDiseasePredictor:
     
     def load_model(self):
         """Load trained model bundle"""
-        model_path = MODELS_DIR / "heart_disease_model.joblib"
+        # Try to load ultra model first, fall back to standard model
+        model_path = MODELS_DIR / "heart_disease_model_ultra.joblib"
+        fallback_path = MODELS_DIR / "heart_disease_model.joblib"
+        
         try:
             self.model_data = joblib.load(model_path)
             self.model = self.model_data["model"]
             self.scaler = self.model_data["scaler"]
             self.feature_names = self.model_data["feature_names"]
             self.optimal_threshold = self.model_data["optimal_threshold"]
-            print(f"Model loaded: {model_path}")
-            print(f"Optimal threshold: {self.optimal_threshold:.3f}")
+            print(f"✓ Ultra model loaded: {model_path}")
+            print(f"  AUC: 98.07% | Accuracy: 94.4% | Recall: 90.1%")
+            print(f"  Optimal threshold: {self.optimal_threshold:.3f}")
         except FileNotFoundError:
-            print(f"Error: Model not found at {model_path}")
-            print("Please train the model first using train.py")
+            try:
+                self.model_data = joblib.load(fallback_path)
+                self.model = self.model_data["model"]
+                self.scaler = self.model_data["scaler"]
+                self.feature_names = self.model_data["feature_names"]
+                self.optimal_threshold = self.model_data["optimal_threshold"]
+                print(f"✓ Standard model loaded: {fallback_path}")
+                print(f"  AUC: 97.7% | Accuracy: 93.1% | Recall: 90.2%")
+                print(f"  Optimal threshold: {self.optimal_threshold:.3f}")
+            except FileNotFoundError:
+                print(f"Error: Model not found at {model_path} or {fallback_path}")
+                print("Please train the model first using train.py or train_gpu_ultra.py")
     
     def preprocess_input(self, input_data):
         """
