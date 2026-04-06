@@ -1,0 +1,75 @@
+{
+  "patient_id": "BT-001",
+  "date": "2026-04-06",
+  "lab_name": "Central Diagnostic Laboratory",
+  "tests": {
+    "lipid_profile": {
+      "total_cholesterol": {
+        "value": 285,
+        "unit": "mg/dL",
+        "status": "HIGH"
+      },
+      "ldl_cholesterol": {
+        "value": 180,
+        "unit": "mg/dL",
+        "status": "HIGH"
+      },
+      "hdl_cholesterol": {
+        "value": 35,
+        "unit": "mg/dL",
+        "status": "LOW"
+      },
+      "triglycerides": {
+        "value": 250,
+        "unit": "mg/dL",
+        "status": "HIGH"
+      }
+    },
+    "glucose_metabolism": {
+      "fasting_blood_sugar": {
+        "value": 145,
+        "unit": "mg/dL",
+        "status": "HIGH"
+      },
+      "hba1c": {
+        "value": 7.2,
+        "unit": "%",
+        "status": "ELEVATED"
+      }
+    },
+    "renal_function": {
+      "creatinine": {
+        "value": 1.1,
+        "unit": "mg/dL",
+        "status": "NORMAL"
+      },
+      "bun": {
+        "value": 18,
+        "unit": "mg/dL",
+        "status": "NORMAL"
+      },
+      "egfr": {
+        "value": 72,
+        "unit": "mL/min",
+        "status": "NORMAL"
+      }
+    },
+    "cardiac_markers": {
+      "troponin_i": {
+        "value": 0.02,
+        "unit": "ng/mL",
+        "status": "ELEVATED"
+      },
+      "ck_mb": {
+        "value": 5.2,
+        "unit": "ng/mL",
+        "status": "NORMAL"
+      },
+      "bnp": {
+        "value": 250,
+        "unit": "pg/mL",
+        "status": "ELEVATED"
+      }
+    }
+  }
+}

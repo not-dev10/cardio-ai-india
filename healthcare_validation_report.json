@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-04-06T13:03:54.098421",
+  "test_suites": {
+    "accuracy": {
+      "high_risk_detection": "3/3",
+      "low_risk_detection": "3/3",
+      "overall_accuracy": "100.0%"
+    },
+    "stemi": {
+      "stemi_detection": "3/3",
+      "artery_identification": "3/3"
+    },
+    "safety": {
+      "confidence_validation": "2/2",
+      "borderline_handling": "0/2"
+    },
+    "data_integrity": {
+      "input_validation": "0/3",
+      "output_consistency": "PASS"
+    },
+    "performance": {
+      "prediction_latency": "1448.55ms",
+      "stemi_latency": "0.01ms"
+    },
+    "clinical_support": {
+      "risk_stratification": "2/3"
+    }
+  },
+  "overall_status": "NEEDS_REVIEW",
+  "pass_rate": "68.4%",
+  "total_tests": 19,
+  "tests_passed": 13
+}

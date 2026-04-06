@@ -1,0 +1,19 @@
+{
+  "patient_id": "CI-001",
+  "date": "2026-04-06",
+  "modality": "Chest X-Ray",
+  "findings": {
+    "cardiac_silhouette": "Mildly enlarged",
+    "pulmonary_vasculature": "Mild congestion",
+    "pleural_effusion": "None",
+    "pneumothorax": "None",
+    "mediastinal_widening": "None"
+  },
+  "impression": "Mild cardiomegaly with signs of mild pulmonary congestion",
+  "recommendations": [
+    "Echocardiography",
+    "Cardiology consultation",
+    "BNP level assessment",
+    "Consider diuretic therapy"
+  ]
+}

@@ -1,0 +1,26 @@
+
+CARDIAC IMAGING REPORT
+======================
+
+Patient ID: CI-001
+Date: 2026-04-06
+Modality: Chest X-Ray
+Radiologist: Dr. Sarah Johnson
+
+FINDINGS:
+- Cardiac silhouette: Mildly enlarged
+- Pulmonary vasculature: Mild congestion
+- Pleural effusion: None
+- Pneumothorax: None
+- Mediastinal widening: None
+
+IMPRESSION:
+Mild cardiomegaly with signs of mild pulmonary congestion.
+Findings consistent with mild heart failure.
+Recommend echocardiography for further evaluation.
+
+RECOMMENDATIONS:
+1. Echocardiography
+2. Cardiology consultation
+3. BNP level assessment
+4. Consider diuretic therapy

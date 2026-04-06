@@ -1,0 +1,37 @@
+
+ECG REPORT
+==========
+
+Patient ID: ECG-001
+Date: 2026-04-06
+Time: 14:30
+Technician: John Smith
+
+MEASUREMENTS:
+- Heart Rate: 95 bpm
+- PR Interval: 160 ms
+- QRS Duration: 100 ms
+- QT Interval: 420 ms
+
+ST SEGMENT ANALYSIS:
+- V1: +2.5 mm (ELEVATED)
+- V2: +3.0 mm (ELEVATED)
+- V3: +2.8 mm (ELEVATED)
+- V4: +2.2 mm (ELEVATED)
+- II: -0.8 mm (DEPRESSED)
+- III: -0.9 mm (DEPRESSED)
+- aVF: -0.7 mm (DEPRESSED)
+
+T WAVE ANALYSIS:
+- V1: Inverted
+- V2: Inverted
+- V3: Upright
+- V4: Upright
+
+Q WAVES:
+- Present in V1, V2
+
+INTERPRETATION:
+ST elevation in anterior leads (V1-V4) with reciprocal ST depression in inferior leads.
+Consistent with acute anterior wall myocardial infarction (STEMI).
+URGENT: Recommend immediate cardiology consultation and cardiac catheterization.
