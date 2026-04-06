@@ -1,0 +1,61 @@
+
+CARDIAC IMAGING REPORT
+======================
+
+Patient ID: SYNTH-001
+Date: 2026-04-06
+Modality: Chest X-Ray PA View
+Radiologist: Dr. Sample
+
+TECHNICAL QUALITY:
+-----------------
+Adequate inspiration
+Good penetration
+No rotation
+
+CARDIAC SILHOUETTE:
+------------------
+Size: Mildly enlarged (Cardiothoracic ratio: 0.55)
+Shape: Normal contour
+Borders: Well-defined
+
+PULMONARY VASCULATURE:
+---------------------
+Mild pulmonary vascular congestion
+Cephalization present
+No pleural effusion
+
+LUNG FIELDS:
+-----------
+Clear bilaterally
+No infiltrates
+No pneumothorax
+No masses
+
+MEDIASTINUM:
+-----------
+Normal width
+Aortic knob: Normal
+No widening
+
+BONES:
+------
+No acute fractures
+Degenerative changes in thoracic spine
+
+IMPRESSION:
+----------
+1. Mild cardiomegaly (CTR 0.55)
+2. Mild pulmonary vascular congestion
+3. Findings consistent with mild heart failure
+
+RECOMMENDATIONS:
+---------------
+1. Echocardiography for cardiac function assessment
+2. BNP level measurement
+3. Cardiology consultation
+4. Consider diuretic therapy
+
+Reported by: Dr. Sample Radiologist
+License: RAD-12345
+Date: 2026-04-06 15:00
